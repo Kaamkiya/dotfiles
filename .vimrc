@@ -82,16 +82,14 @@ set incsearch
 " For regexes in searching
 set magic
 
-
 """"""""""""""
 " Indentation
 """"""""""""""
 
+" 2 space indent by default
 setl expandtab
-
-" 2 space indent for JS/TS/JSON/HTML/CSS/YAML/C/C++
-au BufRead,BufNewFile *.js,*.ts,*.tsx,*.html,*.css,*.json,*.yaml,*.yml,*.c,*.cpp,*.h,*.hpp,*.nim setl shiftwidth=2
-au BufRead,BufNewFile *.js,*.ts,*.tsx,*.html,*.css,*.json,*.yaml,*.yml,*.c,*.cpp,*.h,*.hpp,*.nim setl tabstop=2
+setl shiftwidth=2
+setl tabstop=2
 
 " 4 space indent for Python/D
 au BufRead,BufNewFile *.py,*.d setl shiftwidth=4
@@ -101,3 +99,12 @@ au BufRead,BufNewFile *.py,*.d setl tabstop=4
 au BufRead,BufNewFile *.go setl shiftwidth=8
 au BufRead,BufNewFile *.go setl tabstop=8
 au BufRead,BufNewFile *.go setl noexpandtab
+
+""""""""""""""""""""""""""""""""""""""""""""""
+
+if has("autocmd") && exists("+omnifunc")
+autocmd Filetype *
+    \ if &omnifunc == "" |
+    \ setlocal omnifunc=syntaxcomplete#Complete |
+    \ endif
+    endif
