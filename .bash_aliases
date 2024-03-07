@@ -8,6 +8,6 @@ alias tree='tree --dirsfirst -F'
 
 alias ..='cd ../;'
 
-alias servehttp='python -m http.server'
+alias serve='python -m http.server'
 
 alias calm='PS1="\033[32;1m(calm-1.0.1)\033[0m$ "'
