@@ -4,7 +4,7 @@ __make_ps1() {
     local color_failure="\[\033[0;31m\]" # red
 
     local cwd_color="\[\033[0;34m\]" # blue
-    local cwd="$cwd_color\w/$color_reset"
+    local cwd="$cwd_color\w$color_reset"
 
     local git_color="\033[0;33m" # yellow
 
