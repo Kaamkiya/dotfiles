@@ -19,7 +19,7 @@ set cursorcolumn
 set cursorline
 
 " Set the colorscheme
-colorscheme ghdark
+colorscheme material
 
 " Always show status bar
 set laststatus=2
@@ -88,17 +88,21 @@ set magic
 
 " 2 space indent by default
 setl expandtab
-setl shiftwidth=2
 setl tabstop=2
+setl shiftwidth=2
 
-" 4 space indent for Python/D
-au BufRead,BufNewFile *.py,*.d setl shiftwidth=4
-au BufRead,BufNewFile *.py,*.d setl tabstop=4
+" 4 space indent for Python/D/Bash/Rust/Zig
+au BufRead,BufNewFile *.py,*.d,*.sh,*.bash,*.rs,*.zig setl shiftwidth=4
+au BufRead,BufNewFile *.py,*.d,*.sh,*.bash,*.rs,*.zig setl tabstop=4
 
-" 8 space width tab indent for Go
-au BufRead,BufNewFile *.go setl shiftwidth=8
-au BufRead,BufNewFile *.go setl tabstop=8
-au BufRead,BufNewFile *.go setl noexpandtab
+" 8 space indent for Assembly (NASM)
+au BufRead,BufNewFile *.asm setl shiftwidth=8
+au BufRead,BufNewFile *.asm setl tabstop=8
+
+" 8 space width tab indent for Go/Makefile
+au BufRead,BufNewFile *.go,Makefile setl shiftwidth=8
+au BufRead,BufNewFile *.go,Makefile setl tabstop=8
+au BufRead,BufNewFile *.go,Makefile setl noexpandtab
 
 """"""""""""""""""""""""""""""""""""""""""""""
 
