@@ -32,6 +32,4 @@ function asmc() {
         nasm -f elf64 -o a.o $1 && ld a.o && rm a.o
 }
 
-source "$HOME/ps1.sh"
-
-git config --global alias.ignore '!gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@ ;}; gi'
+source "$HOME/.ps1.sh"
