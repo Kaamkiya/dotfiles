@@ -31,5 +31,3 @@ export PATH="$PATH:/usr/local/go/bin"
 function asmc() {
         nasm -f elf64 -o a.o $1 && ld a.o && rm a.o
 }
-
-source "$HOME/.ps1.sh"
