@@ -27,6 +27,7 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:$(go env GOPATH)/bin"
 
 function asmc() {
         nasm -f elf64 -o a.o $1 && ld a.o && rm a.o
