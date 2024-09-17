@@ -19,7 +19,7 @@ set cursorcolumn
 set cursorline
 
 " Set the colorscheme
-colorscheme rose-pine
+colorscheme catppuccin_mocha
 
 " Always show status bar
 set laststatus=2
