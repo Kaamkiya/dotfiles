@@ -9,7 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -116,8 +116,8 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1.  "
 set $ws2 "2. 󰈹 "
-set $ws3 "3. 󰫑 "
-set $ws4 "4. 󰼭 "
+set $ws3 "3. 󰨞 "
+set $ws4 "4. 󰖟 "
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -155,6 +155,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# lock the screen
+bindsym $mod+Shift+x exec "i3lock"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -184,65 +186,24 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Catppuccin Mocha color scheme
-
-set $rosewater #f5e0dc
-set $flamingo #f2cdcd
-set $pink #f5c2e7
-set $mauve #cba6f7
-set $red #f38ba8
-set $maroon #eba0ac
-set $peach #fab387
-set $yellow #f9e2af
-set $green #a6e3a1
-set $teal #94e2d5
-set $sky #89dceb
-set $sapphire #74c7ec
-set $blue #89b4fa
-set $lavender #b4befe
-set $text #cdd6f4
-set $subtext1 #bac2de
-set $subtext0 #a6adc8
-set $overlay2 #9399b2
-set $overlay1 #7f849c
-set $overlay0 #6c7086
-set $surface2 #585b70
-set $surface1 #45475a
-set $surface0 #313244
-set $base #1e1e2e
-set $mantle #181825
-set $crust #11111b
-
-# target                 title     bg    text   indicator  border
-client.focused           $lavender $base $text  $rosewater $lavender
-client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
-client.unfocused         $overlay0 $base $text  $rosewater $overlay0
-client.urgent            $peach    $base $peach $overlay0  $peach
-client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
-client.background        $base
-
-# bar
-bar {
-  colors {
-    background         $base
-    statusline         $text
-    focused_statusline $text
-    focused_separator  $base
-
-    # target           border bg        text
-    focused_workspace  $base  $mauve    $crust
-    active_workspace   $base  $surface2 $text
-    inactive_workspace $base  $base     $text
-    urgent_workspace   $base  $red      $crust
-  }
-
-  status_command i3status
-}
+# target                 title    bg       text     indicator  border
+client.focused           #b4befe  #1e1e2e  #cdd6f4  #f5e0dc    #b4befe
+client.focused_inactive  #6c7086  #1e1e2e  #cdd6f4  #f5e0dc    #6c7086
+client.unfocused         #6c7086  #1e1e2e  #cdd6f4  #f5e0dc    #6c7086
+client.urgent            #fab387  #1e1e2e  #fab387  #6c7086    #fab387
+client.placeholder       #6c7086  #1e1e2e  #cdd6f4  #6c7086    #6c7086
+client.background        #1e1e2e
 
 # Display wallpaper
-exec_always feh --bg-fill ~/Pictures/backgrounds/Astronaut.png
+exec_always feh --bg-fill ~/Pictures/backgrounds/City.png
+
+# Use polybar instead of i3bar and i3status
+exec_always for process in $(ps aux | grep polybar | awk '{ print $2 }'); do kill $process; done
+exec_always polybar & 2>/tmp/polybar.log 1>/tmp/polybar.log
 
 # Allocate apps to the correct workspaces
-for_window [class="firefox"] for to workspace $ws2
+assign [class="kitty"] 1
+assign [class="firefox"] 2
 
 # Gaps
 gaps inner 10
