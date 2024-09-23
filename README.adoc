@@ -1,0 +1,5 @@
+= My dotfiles
+
+All the config files I find important.
+
+Cursor theme is Bibata Dark.
