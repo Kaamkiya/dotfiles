@@ -112,6 +112,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-echo "Hello again :)"
+bash "$HOME/.profile"
 
-source "$HOME/.ps1.sh"
+fastfetch
+
+source "$HOME/.config/ps1.sh"
