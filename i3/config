@@ -156,7 +156,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 # lock the screen
-bindsym $mod+Shift+x exec "i3lock"
+bindsym $mod+Shift+x exec "$HOME/.local/bin/lock"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -195,15 +195,18 @@ client.placeholder       #6c7086  #1e1e2e  #cdd6f4  #6c7086    #6c7086
 client.background        #1e1e2e
 
 # Display wallpaper
-exec_always feh --bg-fill ~/Pictures/backgrounds/City.png
+exec_always feh --bg-fill ~/Pictures/backgrounds/Highway.png
 
 # Use polybar instead of i3bar and i3status
 exec_always for process in $(ps aux | grep polybar | awk '{ print $2 }'); do kill $process; done
 exec_always polybar & 2>/tmp/polybar.log 1>/tmp/polybar.log
 
+# Lock screen when lid is closed
+exec --no-startup-id xss-lock --transfer-sleep-lock -- lock
+
 # Allocate apps to the correct workspaces
-assign [class="kitty"] 1
-assign [class="firefox"] 2
+assign [class="kitty"] $ws1
+assign [class="firefox"] $ws2
 
 # Gaps
 gaps inner 10

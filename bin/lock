@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# A pretty basic i3lock-color config.
-# Feel free to play around with the values.
+# A pretty simple i3lock-color script.
+# Feel free to mess with this.
 
 BLANK='#00000000'
 CLEAR='#ffffff22'
@@ -34,7 +34,7 @@ i3lock \
 --bshl-color=$WRONG  \
 \
 --fill                                      \
---image=$HOME/Pictures/backgrounds/City.png \
+--image=$HOME/Pictures/backgrounds/Highway.png \
 \
 --show-failed-attempts    \
 --clock                   \
