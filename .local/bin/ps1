@@ -1,3 +1,5 @@
+#!/bin/bash
+
 __make_ps1() {
     local color_reset="\[\033[m\]"
     local color_success="\[\033[0;32m\]" # green
@@ -7,12 +9,6 @@ __make_ps1() {
     local cwd="$cwd_color\w$color_reset"
 
     local git_color="\033[0;33m" # yellow
-
-    if [[ $? == 0 ]]; then
-        local symbol="$color_success $ $color_reset"
-    else
-        local symbol="$color_failure $ $color_reset"
-    fi
 
     __git_info() {
         local git_branch_symbol="⑂"
@@ -30,7 +26,7 @@ __make_ps1() {
     }
     
     local git='$(__git_info)'
-    PS1="$cwd$git$symbol"
+    PS1="$cwd$git $ "
 }
 
 __make_ps1
