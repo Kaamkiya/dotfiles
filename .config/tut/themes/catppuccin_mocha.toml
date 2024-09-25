@@ -1,0 +1,29 @@
+# Catppuccin Mocha theme by Kaamkiya
+
+background="#1e1e2e"                        # base
+text="#cdd6f4"                              # text
+subtle="#7f849c"                            # overlay 1
+warning-text="#f9e2af"                      # yellow
+text-special-one="#89b4fa"                  # sky
+text-special-two="#74c7ec"                  # sapphire
+top-bar-background="#313244"                # surface 0
+top-bar-text="#b4befe"                      # lavender
+status-bar-background="#313244"             # surface 0
+status-bar-text="#b4befe"                   # lavender
+status-bar-view-background="#313244"        # surface 0
+status-bar-view-text="#b4befe"              # lavender
+command-text="#cdd6f4"                      # text
+list-selected-background="#45475a"          # surface 1
+list-selected-text="#b4befe"                # lavender
+list-selected-inactive-background="#313244" # surface 0
+list-selected-inactive-text="#a6adc8"       # subtext 0
+controls-text="#bac2de"                     # subtext 1
+controls-highlight="#b4befe"                # lavender
+autocomplete-background="#313244"           # surface 0
+autocomplete-text="#a6adc8"                 # subtext 0
+autocomplete-selected-background="#45475a"  # surface 1
+autocomplete-selected-text="#b4befe"        # lavender
+button-color-one="#b4befe"                  # lavender
+button-color-two="#313244"                  # surface 0
+timeline-name-background="#313244"          # surface 0
+timeline-name-text="#a6adc8"                # subtext 0
