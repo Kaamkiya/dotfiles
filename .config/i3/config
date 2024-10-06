@@ -195,7 +195,7 @@ client.placeholder       #6c7086  #1e1e2e  #cdd6f4  #6c7086    #6c7086
 client.background        #1e1e2e
 
 # Display wallpaper
-exec_always feh --bg-fill ~/Pictures/backgrounds/Highway.png
+exec_always feh --bg-fill --random ~/Pictures/backgrounds/
 
 # Use polybar instead of i3bar and i3status
 exec_always for process in $(ps aux | grep polybar | awk '{ print $2 }'); do kill $process; done

@@ -3,6 +3,7 @@ alias pip='pip3'
 
 alias ls='ls --color=auto -F --group-directories-first'
 alias la='ls -A'
+alias ll='la -lh'
 
 alias tree='tree --dirsfirst -F'
 

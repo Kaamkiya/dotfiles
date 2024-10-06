@@ -1,0 +1,10 @@
+default_profile = "main"
+
+[settings.image_preview]
+protocol.type = "kitty"
+
+[settings.notifications]
+enabled = true
+
+[profiles.main]
+user_id = "@zia.m:matrix.org"
