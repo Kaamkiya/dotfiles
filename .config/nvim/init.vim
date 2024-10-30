@@ -86,23 +86,19 @@ set magic
 " Indentation
 """"""""""""""
 
-" 2 space indent by default
-setl expandtab
-setl tabstop=2
-setl shiftwidth=2
+setl noexpandtab
+setl tabstop=8
+setl shiftwidth=8
 
 " 4 space indent for Python/D/Bash/Rust/Zig
 au BufRead,BufNewFile *.py,*.d,*.sh,*.bash,*.rs,*.zig setl shiftwidth=4
 au BufRead,BufNewFile *.py,*.d,*.sh,*.bash,*.rs,*.zig setl tabstop=4
+au BufRead,BufNewFile *.py,*.d,*.sh,*.bash,*.rs,*.zig setl expandtab
 
-" 8 space indent for Assembly (NASM)
-au BufRead,BufNewFile *.asm setl shiftwidth=8
-au BufRead,BufNewFile *.asm setl tabstop=8
-
-" 8 space width tab indent for Go/Makefile
-au BufRead,BufNewFile *.go,Makefile setl shiftwidth=8
-au BufRead,BufNewFile *.go,Makefile setl tabstop=8
-au BufRead,BufNewFile *.go,Makefile setl noexpandtab
+" 2 space width indent for HTML/CSS/JS/TS
+au BufRead,BufNewFile *.html,*.css,*.jsx,*.tsx,*.js,*.ts setl shiftwidth=2
+au BufRead,BufNewFile *.html,*.css,*.jsx,*.tsx,*.js,*.ts setl tabstop=2
+au BufRead,BufNewFile *.html,*.css,*.jsx,*.tsx,*.js,*.ts setl expandtab
 
 """"""""""""""""""""""""""""""""""""""""""""""
 

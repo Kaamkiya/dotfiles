@@ -32,3 +32,4 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 function asmc() {
         nasm -f elf64 -o a.o $1 && ld a.o && rm a.o
 }
+. "/home/zm/.deno/env"
