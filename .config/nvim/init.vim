@@ -96,9 +96,9 @@ au BufRead,BufNewFile *.py,*.d,*.sh,*.bash,*.rs,*.zig setl tabstop=4
 au BufRead,BufNewFile *.py,*.d,*.sh,*.bash,*.rs,*.zig setl expandtab
 
 " 2 space width indent for HTML/CSS/JS/TS
-au BufRead,BufNewFile *.html,*.css,*.jsx,*.tsx,*.js,*.ts setl shiftwidth=2
-au BufRead,BufNewFile *.html,*.css,*.jsx,*.tsx,*.js,*.ts setl tabstop=2
-au BufRead,BufNewFile *.html,*.css,*.jsx,*.tsx,*.js,*.ts setl expandtab
+au BufRead,BufNewFile *.html,*.css,*.jsx,*.tsx,*.js,*.ts,*.astro setl shiftwidth=2
+au BufRead,BufNewFile *.html,*.css,*.jsx,*.tsx,*.js,*.ts,*.astro setl tabstop=2
+au BufRead,BufNewFile *.html,*.css,*.jsx,*.tsx,*.js,*.ts,*.astro setl expandtab
 
 """"""""""""""""""""""""""""""""""""""""""""""
 
