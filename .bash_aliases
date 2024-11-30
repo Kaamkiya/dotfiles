@@ -9,6 +9,4 @@ alias tree='tree --dirsfirst -F --gitignore'
 
 alias ..='cd ../;'
 
-alias serve='python -m http.server'
-
-alias calm='PS1="\033[32;1m(calm-1.0.1)\033[0m$ "'
+alias lilly="$HOME/projects/lilly/lilly"

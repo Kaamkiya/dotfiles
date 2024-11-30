@@ -28,7 +28,7 @@ Windows = "  "
 symbol = " "
 
 [golang]
-symbol = " "
+symbol = "󰟓 "
 
 [perl]
 symbol = " "
@@ -43,10 +43,13 @@ symbol = " "
 symbol = " "
 
 [deno]
-symbol = " "
+symbol = " "
 
 [bun]
-symbol = " "
+symbol = " "
+
+[vlang]
+symbol = " "
 
 [package]
 symbol = "󰏗 "
