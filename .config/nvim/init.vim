@@ -1,9 +1,4 @@
-" Disable Vi compatibility, which can cause problems
 set nocompatible
-
-"""""""""""
-" Graphics
-"""""""""""
 
 " Enable syntax highlighing
 syntax on
@@ -24,10 +19,7 @@ colorscheme catppuccin_mocha
 " Always show status bar
 set laststatus=2
 
-"""""""""""
-" Editing
-"""""""""""
-
+" Enable file-specific features
 filetype on
 
 " Update when the file is edited from elsewhere
@@ -52,29 +44,11 @@ set nowrap
 " Turn off backup files
 set noswapfile
 
-""""""""""""
-" Lightline
-""""""""""""
-let g:lightline = {
-    \ 'colorscheme': 'OldHope',
-    \ }
-
-"""""""""""""""
-" Autocomplete
-"""""""""""""""
-
 " Autocompletion for commands
 set wildmenu
 
-""""""""""""
-" Searching
-""""""""""""
-
 " Highlight search results
 set hlsearch
-
-" Ignore case when searching
-set ignorecase
 
 " Make searching more like in modern browsers
 set incsearch
@@ -82,10 +56,7 @@ set incsearch
 " For regexes in searching
 set magic
 
-""""""""""""""
-" Indentation
-""""""""""""""
-
+" Default indent is a tab
 setl noexpandtab
 setl tabstop=8
 setl shiftwidth=8
@@ -100,8 +71,7 @@ au BufRead,BufNewFile *.html,*.css,*.jsx,*.tsx,*.js,*.ts,*.astro setl shiftwidth
 au BufRead,BufNewFile *.html,*.css,*.jsx,*.tsx,*.js,*.ts,*.astro setl tabstop=2
 au BufRead,BufNewFile *.html,*.css,*.jsx,*.tsx,*.js,*.ts,*.astro setl expandtab
 
-""""""""""""""""""""""""""""""""""""""""""""""
-
+" Autocompletion
 if has("autocmd") && exists("+omnifunc")
 autocmd Filetype *
     \ if &omnifunc == "" |
