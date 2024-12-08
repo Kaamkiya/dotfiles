@@ -29,8 +29,6 @@ fi
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$(go env GOPATH)/bin"
 
-export PATH="$PATH:/home/zm/.local/share/floorp"
-
 function asmc() {
         nasm -f elf64 -o a.o $1 && ld a.o && rm a.o
 }
