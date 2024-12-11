@@ -112,3 +112,6 @@ bash "$HOME/.profile"
 fastfetch
 
 source "$HOME/.local/bin/ps1"
+
+eval "$(starship init bash)"
+
