@@ -51,6 +51,9 @@ symbol = " "
 [vlang]
 symbol = " "
 
+[lua]
+symbol = "󰢱 "
+
 [package]
 symbol = "󰏗 "
 
