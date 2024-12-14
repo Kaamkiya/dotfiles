@@ -1,8 +1,5 @@
 vim.go.compatible = false
 vim.go.lazyredraw = true
-vim.go.number = true
-vim.go.cursorline = true
-vim.go.cursorcolumn = true
 vim.go.cmdheight = 1
 vim.go.scrolloff = 4
 vim.go.wildmenu = true
@@ -11,9 +8,13 @@ vim.go.hlsearch = true
 vim.go.incsearch = true
 vim.go.magic = true
 
-vim.cmd.syntax "on"
-vim.cmd.filetype "on"
-vim.cmd.colorscheme "catppuccin_mocha"
+vim.o.number = true
+vim.o.cursorline = true
+vim.o.wrap = false
+
+vim.cmd.syntax("on")
+vim.cmd.filetype("on")
+vim.cmd.colorscheme("catppuccin_mocha")
 
 function contains(t, value)
   for i = 1,#t do
