@@ -186,7 +186,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # custom keys
-bindsym $mod+Shift+s exec "flameshot screen"
+bindsym $mod+Shift+s exec "flameshot gui"
 
 # Catppuccin Mocha color scheme
 # target                 title    bg       text     indicator  border
