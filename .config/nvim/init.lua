@@ -25,7 +25,7 @@ function contains(t, value)
   return false
 end
 
-if (contains({"javascript", "javascriptreact", "html", "css", "typescript", "typescriptreact", "astro"}, vim.bo.filetype)) then
+if (contains({"javascript", "javascriptreact", "html", "css", "typescript", "typescriptreact", "java", "astro"}, vim.bo.filetype)) then
     vim.bo.expandtab = true
     vim.bo.tabstop = 2
     vim.bo.shiftwidth = 2
