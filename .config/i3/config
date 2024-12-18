@@ -186,7 +186,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # custom keys
-bindsym $mod+Shift+s exec "flameshot gui"
+bindsym $mod+Shift+s exec "flameshot gui && notify-send -u -t 1000 'Screenshot successfully taken'"
 
 # Catppuccin Mocha color scheme
 # target                 title    bg       text     indicator  border
