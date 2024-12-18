@@ -71,9 +71,3 @@
 *.vim text eol=lf
 .vimrc text eol=lf
 .gvimrc text eol=lf
-
-*.json linguist-language=json
-*.toml linguist-language=toml
-*.yml linguist-language=yaml
-*.yaml linguist-language=yaml
-*.conf linguist-language=conf
