@@ -1,11 +1,14 @@
 local wezterm = require 'wezterm'
+
 local config = {}
 
+-- Font config
 config.font = wezterm.font 'JetBrainsMono NerdFont'
 config.font_size = 10.0
 
 config.color_scheme = 'Catppuccin Mocha'
 
+-- Tab bar config
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 config.show_new_tab_button_in_tab_bar = false
@@ -45,5 +48,11 @@ wezterm.on(
         }
     end
 )
+
+-- Command palette config
+config.command_palette_bg_color = '#11111b'
+config.command_palette_fg_color = '#b4befe'
+config.command_palette_font_size = 10
+config.command_palette_rows = 4
 
 return config
