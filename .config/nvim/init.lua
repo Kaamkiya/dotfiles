@@ -1,3 +1,5 @@
+require("hardtime").setup()
+
 vim.go.compatible = false
 vim.go.lazyredraw = true
 vim.go.cmdheight = 1
