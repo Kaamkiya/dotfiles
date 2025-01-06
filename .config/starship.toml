@@ -12,7 +12,7 @@ truncate_to_repo = false
 read_only = " 󰌾"
 
 [os]
-disabled = false
+disabled = true
 
 [os.symbols]
 Void = "  "

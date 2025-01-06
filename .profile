@@ -28,6 +28,9 @@ fi
 
 export $(dbus-launch)
 
+export EDITOR=hx # I'll change the value when I change editors.
+alias h=$EDITOR
+
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$(go env GOPATH)/bin"
 

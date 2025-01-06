@@ -8,7 +8,7 @@
         attr = "!ga() { curl -sL https://gitattributes.com/api/$@ ;}; ga"
 	unstage = "rm --cached"
 [core]
-        editor = nvim
+        editor = hx
         autocrlf = input
 [help]
         autocorrect = 30
