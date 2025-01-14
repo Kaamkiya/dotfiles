@@ -10,11 +10,11 @@ All the config files I find important.
 - feh
 - flameshot
 - nvim
-- wezterm
+- kitty
 - aerc
 - fastfetch
 - starship
-- bash
+- elvish
 
 ## Stuff not shown
 

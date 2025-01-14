@@ -11,7 +11,8 @@ pkgs=(
   'make'
 
   # Languages
-  'gcc'      # C compiler
+  'tcc'      # C compiler
+  'glibc-devel' # C compiler dependencies
   'go'       # Go compiler
 
   # These are useful for GUI environments/computers with desktops.
