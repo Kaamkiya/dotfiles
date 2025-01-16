@@ -4,17 +4,21 @@ All the config files I find important.
 
 ## Installed Apps
 
-- firefox
-- i3
-- polybar
-- feh
-- flameshot
-- nvim
-- kitty
-- aerc
-- fastfetch
-- starship
-- elvish
+- [Firefox](https://www.mozilla.org/en-US/firefox/new/)
+- [i3](https://i3wm.org/)
+- [Polybar](https://polybar.github.io/)
+- [feh](https://feh.finalrewind.org/)
+- [Flameshot](https://flameshot.org/)
+- [Helix](https://helix-editor.com)
+- [Kitty](https://sw.kovidgoyal.net/kitty/)
+- [aerc](http://aerc-mail.org/)
+- [Fastfetch](https://github.com/fastfetch-cli/fastfetch)
+- [Starship](https://starship.rs)
+- [Elvish](https://elv.sh)
+- [Kalk](https://kalker.xyz)
+- [iamb](https://iamb.chat)
+- [dblab](https://github.com/danvergara/dblab)
+- [gh](https://github.com/cli/cli)
 
 ## Stuff not shown
 

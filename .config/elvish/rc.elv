@@ -1,4 +1,4 @@
-set paths = [ $E:HOME'/.local/bin' '/usr/local/go/bin' '/usr/lib/jvm/openjdk8/bin' $@paths ]
+set paths = [ $E:HOME'/.local/bin' $E:HOME'/go/bin' '/usr/local/go/bin' '/usr/lib/jvm/openjdk8/bin' $@paths ]
 
 fastfetch
 eval (starship init elvish)
