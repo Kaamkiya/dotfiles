@@ -6,7 +6,6 @@ local config = {}
 config.font = wezterm.font 'JetBrainsMono NerdFont'
 config.font_size = 10.0
 
-config.color_scheme = 'Catppuccin Mocha'
 
 -- Tab bar config
 config.tab_bar_at_bottom = true
@@ -54,5 +53,9 @@ config.command_palette_bg_color = '#11111b'
 config.command_palette_fg_color = '#b4befe'
 config.command_palette_font_size = 10
 config.command_palette_rows = 4
+
+-- Miscellaneous config
+config.line_height = 1
+config.color_scheme = 'Catppuccin Mocha'
 
 return config
