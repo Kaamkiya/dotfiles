@@ -2,7 +2,7 @@
 
 All the config files I find important.
 
-![A screenshot of my config](assets/2025-01-26_10-18.png)
+![A screenshot of my terminal](assets/terminal.png)
 
 ## Installed Apps
 
