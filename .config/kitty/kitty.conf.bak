@@ -8,7 +8,7 @@ bold_italic_font auto
 font_size 10
 
 # BEGIN_KITTY_THEME
-# Nord
+# Rosé Pine
 include current-theme.conf
 # END_KITTY_THEME
 

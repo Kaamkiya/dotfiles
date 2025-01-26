@@ -19,6 +19,7 @@ All the config files I find important.
 - [iamb](https://iamb.chat)
 - [dblab](https://github.com/danvergara/dblab)
 - [gh](https://github.com/cli/cli)
+- [tokei](https://github.com/XAMPPRocky/tokei)
 
 ## Stuff not shown
 
