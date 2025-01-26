@@ -2,6 +2,8 @@
 
 All the config files I find important.
 
+![A screenshot of my config](assets/2025-01-26_10-18.png)
+
 ## Installed Apps
 
 - [Firefox](https://www.mozilla.org/en-US/firefox/new/)
@@ -20,6 +22,7 @@ All the config files I find important.
 - [dblab](https://github.com/danvergara/dblab)
 - [gh](https://github.com/cli/cli)
 - [tokei](https://github.com/XAMPPRocky/tokei)
+- [superfile](https://superfile.netlify.app)
 
 ## Stuff not shown
 
