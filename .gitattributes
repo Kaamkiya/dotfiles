@@ -62,3 +62,4 @@
 *.toml linguist-language=TOML
 *.yaml linguist-language=YAML
 *.json linguist-language=JSON
+**/*.jsonc linguist-language=JSON
