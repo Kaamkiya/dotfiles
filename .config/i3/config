@@ -189,8 +189,16 @@ exec_always polybar & 2>/tmp/polybar.log 1>/tmp/polybar.log
 exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l dim
 
 # Allocate apps to the correct workspaces
+# Terminals
 assign [class="kitty"] $ws1
+assign [class="org.wezfurlong.wezterm"] $ws1
+# Browsers (Firefox)
 assign [class="(?i)firefox"] $ws2
+# WPILib
+assign [class="(?i)code"] $ws3
+assign [class="(?i)advantagescope (wpilib"] $ws3
+assign [class="(?i)OutlineViewer - DISCONNECTED"] $ws3
+assign [class="(?i)Glass - DISCONNECTED"] $ws3
 
 # Gaps
 gaps inner 10
