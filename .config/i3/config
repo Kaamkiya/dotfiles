@@ -196,7 +196,7 @@ assign [class="org.wezfurlong.wezterm"] $ws1
 assign [class="(?i)firefox"] $ws2
 # WPILib
 assign [class="(?i)code"] $ws3
-assign [class="(?i)advantagescope (wpilib"] $ws3
+assign [class="(?i)advantagescope (wpilib)"] $ws3
 assign [class="(?i)OutlineViewer - DISCONNECTED"] $ws3
 assign [class="(?i)Glass - DISCONNECTED"] $ws3
 

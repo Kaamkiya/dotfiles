@@ -9,4 +9,6 @@ fn ll { |@a| la -lh $@a }
 
 fn tree { |@a| /usr/bin/tree --dirsfirst -F --gitignore $@a }
 
+set E:XDG_RUNTIME_DIR = "/run/user/"(id -u)
+
 use github.com/zzamboni/elvish-modules/bang-bang
