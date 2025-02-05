@@ -17,3 +17,5 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/home/zm/.local/bin/gh auth git-credential
+[credential]
+	helper = store --file ~/.git-credentials
