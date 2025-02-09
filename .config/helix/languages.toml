@@ -1,0 +1,9 @@
+[language-server.c-lsp]
+command = "clangd"
+args = [ "--input-mirror-file=/tmp/clangd.log" ]
+
+[[language]]
+name = "c"
+auto-format = true
+indent = { tab-width = 8, unit = "	"}
+language-servers = [ "clangd" ]

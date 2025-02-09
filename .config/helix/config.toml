@@ -4,3 +4,11 @@ theme = "catppuccin_mocha"
 insert = "bar"
 normal = "block"
 select = "underline"
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+nnbsp = "␣"
+tab = "→"
+newline = "⏎"
+tabpad = "·"
