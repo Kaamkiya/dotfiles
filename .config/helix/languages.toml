@@ -1,6 +1,13 @@
-[language-server.c-lsp]
-command = "clangd"
-args = [ "--input-mirror-file=/tmp/clangd.log" ]
+[language-server.superhtml-lsp]
+command = "superhtml"
+args = ["lsp"]
+
+[[language]]
+name = "html"
+scope = "source.html"
+roots = []
+file-types = ["html"]
+language-servers = [ "superhtml-lsp" ]
 
 [[language]]
 name = "c"
