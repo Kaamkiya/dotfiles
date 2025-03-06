@@ -10,8 +10,6 @@ shopt -s checkwinsize
 shopt -s globstar
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
     alias grep='grep --color=auto'
 fi
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
@@ -25,7 +23,24 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-bash "$HOME/.profile"
+alias python='python3'
+alias pip='pip3'
+alias ls='ls --color -F --group-directories-first'
+alias la='ls -A'
+alias ll='la -lh'
+alias tree='tree --dirsfirst -F --gitignore'
+if [ -n "$BASH_VERSION" ]; then
+    if [ -f "$HOME/.bashrc" ]; then
+      . "$HOME/.bashrc"
+    fi
+fi
+if [ -d "$HOME/bin" ]; then
+    PATH="$HOME/bin:$PATH"
+fi
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+export $(dbus-launch)
+export PATH="$PATH:/usr/local/go/bin:$(go env GOPATH)/bin:$HOME/.bun/bin:$HOME/.cargo/bin:$HOME/.deno/bin"
 fastfetch
 eval "$(starship init bash)"
