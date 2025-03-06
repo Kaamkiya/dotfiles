@@ -13,8 +13,8 @@ fn mkcd { |d| mkdir $d; cd $d }
 
 fn asmc { |f|
   var obj = (str:trim-suffix $f .asm)
-  nasm -f elf64 -o $obj.o $f
-  ld -n -N -o $obj $obj.o
+  nasm -f elf64 -g -F stabs $f
+  ld -o $obj $obj.o
 }
 
 fn tree { |@a| /usr/bin/tree --dirsfirst -F --gitignore $@a }
