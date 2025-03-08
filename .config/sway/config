@@ -9,9 +9,9 @@ set $term wezterm
 
 set $menu fuzzel
 
-output * bg ~/pictures/backgrounds/Tower.jpg fill
+output * bg ~/pictures/backgrounds/Steps.png fit
 
-font pango:JetBrainsMono Nerd Font Regular 8
+font pango:JetBrainsMono Nerd Font Regular 8.5
 
 ### Idle configuration
 #
@@ -235,8 +235,8 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    swaybar_command swaybar
-    status_command swayrbar
+    #status_command swayrbar
+    status_command i3status-rs
 
     colors {
         background         $base
