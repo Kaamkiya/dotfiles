@@ -1,5 +1,3 @@
 - audio drivers for microphone
 - fix ms teams
 - switch away from waybar; write custom bar content generator
-- theme mako
-- different terminal emulator
