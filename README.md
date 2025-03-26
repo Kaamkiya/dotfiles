@@ -7,10 +7,6 @@ All the config files I find important.
 ## Installed Apps
 
 - [Firefox](https://www.mozilla.org/en-US/firefox/new/)
-- [i3](https://i3wm.org/)
-- [Polybar](https://polybar.github.io/)
-- [feh](https://feh.finalrewind.org/)
-- [Flameshot](https://flameshot.org/)
 - [Helix](https://helix-editor.com)
 - [WezTerm](https://wezfurlong.org/wezterm/index.html)
 - [aerc](http://aerc-mail.org/)
@@ -21,8 +17,11 @@ All the config files I find important.
 - [dblab](https://github.com/danvergara/dblab)
 - [gh](https://github.com/cli/cli)
 - [tokei](https://github.com/XAMPPRocky/tokei)
-- [superfile](https://superfile.netlify.app)
-- [betterlockscreen](https://github.com/betterlockscreen/betterlockscreen)
+- [French qwerty keyboard](https://qwerty-fr.org/)
+
+## The system
+
+I currently use sway with waybar for bar content.
 
 ## Stuff not shown
 
