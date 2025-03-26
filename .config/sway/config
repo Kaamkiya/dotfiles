@@ -252,6 +252,12 @@ bar {
     }
 }
 
+# Change keyboard layout
+input type:keyboard {
+        xkb_layout us,us_qwerty-fr
+}
+bindsym $mod+u input type:keyboard xkb_switch_layout next
+
 # Gaps.
 gaps inner 10
 gaps outer 5
