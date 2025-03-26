@@ -21,7 +21,7 @@ All the config files I find important.
 
 ## The system
 
-I currently use sway with waybar for bar content.
+I currently use sway with i3status-rust for bar content.
 
 ## Stuff not shown
 
