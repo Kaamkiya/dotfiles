@@ -10,21 +10,25 @@ pkgs=(
   'unzip'
   'make'
 
+  # Utilities
+  'jq'     # JSON processor
+  'xtools' # Tools for working with XBPS (xi, xrs, etc)
+
   # Languages
   'tcc'      # C compiler
   'gcc'      # C compiler dependencies
   'go'       # Go compiler
 
   # Desktop
-  'sway'       # Window manager
-  'glfw-devel' # Dependencies for sway
-  'mako'       # Notification daemon
+  'sway'          # Window manager
+  'glfw-devel'    # Dependencies for sway
+  'mako'          # Notification daemon
+  'kitty'         # A terminal
+  'fuzzel'        # App launcher
+  'i3status-rust' # Swaybar content generator
 
-  # These are useful for GUI environments/computers with desktops.
-  'kitty'     # A terminal.
-
-  # Fun things, not necessarily useful.
-  'fastfetch'   # A quick system fetch.
+  # Fun things, not necessarily useful
+  'fastfetch'   # A quick system fetch
 )
 
 YELLOW="\033[0;93m"
