@@ -257,6 +257,7 @@ input type:keyboard {
         xkb_layout us,us_qwerty-fr
 }
 bindsym $mod+u input type:keyboard xkb_switch_layout next
+#exec notify-send $(printf "Switched keyboard layout to %s" swaymsg -t get_inputs | jq ".[0].xkb_active_layout_name")
 
 # Gaps.
 gaps inner 10

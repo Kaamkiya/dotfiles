@@ -12,12 +12,16 @@ pkgs=(
 
   # Languages
   'tcc'      # C compiler
-  'glibc-devel' # C compiler dependencies
+  'gcc'      # C compiler dependencies
   'go'       # Go compiler
+
+  # Desktop
+  'sway'       # Window manager
+  'glfw-devel' # Dependencies for sway
+  'mako'       # Notification daemon
 
   # These are useful for GUI environments/computers with desktops.
   'kitty'     # A terminal.
-  'firefox'   # A browser.
 
   # Fun things, not necessarily useful.
   'fastfetch'   # A quick system fetch.
