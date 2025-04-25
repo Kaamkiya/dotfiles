@@ -9,7 +9,7 @@ set $term kitty
 
 set $menu fuzzel
 
-output * bg ~/pictures/backgrounds/Steps.png fit
+output * bg ~/pictures/backgrounds/City.png fill
 
 font pango:JetBrainsMono Nerd Font Regular 8.5
 
@@ -260,7 +260,7 @@ bindsym $mod+u input type:keyboard xkb_switch_layout next
 #exec notify-send $(printf "Switched keyboard layout to %s" swaymsg -t get_inputs | jq ".[0].xkb_active_layout_name")
 
 # Gaps.
-gaps inner 10
+gaps inner 5
 gaps outer 5
 
 # Notifications.
@@ -270,6 +270,7 @@ exec mako
 assign [app_id="org.wezfurlong.wezterm"] 1
 assign [app_id="kitty"] 1
 assign [app_id="(?i)firefox"] 2
+assign [class="(?i)Chromium-browser"] 2
 assign [app_id="(?i)zen"] 2
 assign [class="(?i)code"] 3
 

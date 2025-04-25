@@ -1,6 +1,6 @@
 use str
 
-set paths = [ $E:HOME'/.local/bin' $E:HOME'/go/bin' $E:HOME'/.cargo/bin' $E:HOME'/.bun/bin' $E:HOME'/.deno/bin' $E:HOME'/.juliaup/bin' '/usr/local/go/bin' '/usr/lib/jvm/openjdk8/bin' $@paths ]
+set paths = [ $E:HOME'/.local/bin' $E:HOME'/go/bin' $E:HOME'/.cargo/bin' $E:HOME'/.bun/bin' $E:HOME'/.deno/bin' '/usr/local/node/bin' '/usr/local/go/bin' '/usr/lib/jvm/openjdk8/bin' $@paths ]
 
 fastfetch
 eval (starship init elvish)
