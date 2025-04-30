@@ -2,15 +2,50 @@
 command = "superhtml"
 args = ["lsp"]
 
+[language-server.wakatime]
+command = "wakatime-lsp"
+
 [[language]]
 name = "html"
 scope = "source.html"
 roots = []
 file-types = ["html"]
-language-servers = [ "superhtml-lsp" ]
+language-servers = [ "superhtml-lsp", "wakatime" ]
 
 [[language]]
 name = "c"
 auto-format = true
 indent = { tab-width = 8, unit = "	"}
-language-servers = [ "clangd" ]
+language-servers = [ "clangd", "wakatime" ]
+
+[[language]]
+name = "go"
+language-servers = [ "gopls", "wakatime" ]
+
+[[language]]
+name = "javascript"
+language-servers = [ "typescript-language-server", "wakatime" ]
+
+[[language]]
+name = "typescript"
+language-servers = [ "typescript-language-server", "wakatime" ]
+
+[[language]]
+name = "css"
+language-servers = [ "vscode-css-language-server", "wakatime" ]
+
+[[language]]
+name = "nasm"
+language-servers = [ "wakatime" ]
+
+[[language]]
+name = "gas"
+language-servers = [ "wakatime" ]
+
+[[language]]
+name = "rust"
+language-servers = [ "rust-analyzer", "wakatime" ]
+
+[[language]]
+name = "elvish"
+language-servers = [ "elvish", "wakatime" ]

@@ -1,6 +1,6 @@
 use str
 
-set paths = [ $E:HOME'/.local/bin' $E:HOME'/go/bin' $E:HOME'/.cargo/bin' $E:HOME'/.bun/bin' $E:HOME'/.deno/bin' '/usr/local/node/bin' '/usr/local/go/bin' '/usr/lib/jvm/openjdk8/bin' $@paths ]
+set paths = [ $E:HOME'/.local/bin' $E:HOME'/go/bin' $E:HOME'/.cargo/bin' $E:HOME'/.bun/bin' $E:HOME'/.deno/bin' '/home/zm/.local/lib/flutter/bin' '/usr/local/node/bin' '/usr/local/go/bin' '/usr/lib/jvm/openjdk8/bin' $@paths ]
 
 fastfetch
 eval (starship init elvish)
@@ -22,5 +22,6 @@ fn tree { |@a| ll --tree $@a }
 set E:XDG_RUNTIME_DIR = "/run/user/"(id -u)
 set E:MOZ_ENABLE_WAYLAND = 1
 set E:EDITOR = 'hx'
+set E:CHROME_EXECUTABLE = '/home/zm/.local/applications/ungoogled-chromium/chrome'
 
 use github.com/zzamboni/elvish-modules/bang-bang
