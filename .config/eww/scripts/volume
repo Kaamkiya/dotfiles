@@ -1,0 +1,6 @@
+#!/bin/bash
+
+while true; do
+	amixer sget Master | awk -F '[][]' '{print $2}' | xargs
+	sleep 0.1
+done

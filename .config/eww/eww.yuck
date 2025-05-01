@@ -1,13 +1,14 @@
 ;; Polling variables
 (defpoll time :interval "1s"
-              `date +%H:%M:%S`)
+              `date +"%H:%M:%S"`)
 (defpoll batterylevel :interval "5s"
                  `echo $(( ($(cat /sys/class/power_supply/BAT0/capacity) + $(cat /sys/class/power_supply/BAT1/capacity)) / 2))%`)
 
 ;; Listeners
 (deflisten workspaces :initial "[]" "scripts/get_workspaces")
 (deflisten current_workspace :initial "1" "scripts/get_current_workspace")
-(deflisten window :initial "..." "sh ~/.config/eww/scripts/get_window_title")
+(deflisten window :initial "..." "scripts/get_window_title")
+(deflisten volume :initial "0%" "scripts/volume")
 
 ;; Windows
 (defwindow bar
@@ -34,6 +35,7 @@
                       (ram)
                       (cpu)
                       (battery)
+                      (vol)
                       (clock)))
 
 (defwidget clock []
@@ -46,11 +48,15 @@
 
 (defwidget ram []
            (box :class "info"
-                      (label :text "RAM ${round(EWW_RAM.used_mem_perc, 0)}%")))
+                      (label :text "󰍛 ${round(EWW_RAM.used_mem_perc, 0)}%")))
 
 (defwidget cpu []
            (box :class "info"
-                      (label :text "CPU ${round(EWW_CPU.avg, 0)}%")))
+                      (label :text "󰻠 ${round(EWW_CPU.avg, 0)}%")))
+
+(defwidget vol []
+           (box :class "info"
+                       (label :text "VOL ${volume}")))
 
 (defwidget workspaces []
            (box :space-evenly false ; SET MAX WIDTH TO 25%
