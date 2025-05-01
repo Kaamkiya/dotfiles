@@ -26,27 +26,36 @@
 (defwidget bar []
            (box :class "bar"
                 (workspaces)
-                (label :text "${window}")
+                (box :class "info" (label :text "${window}"))
                 (rightside)))
 
 (defwidget rightside []
            (box :halign "end"
+                      (ram)
+                      (cpu)
                       (battery)
                       (clock)))
 
 (defwidget clock []
-           (box
+           (box :class "info"
                       (label :text time)))
 
 (defwidget battery []
-           (box
-                      (label :text batterylevel)))
+           (box :class "info"
+                      (label :text "BAT ${batterylevel}")))
+
+(defwidget ram []
+           (box :class "info"
+                      (label :text "RAM ${round(EWW_RAM.used_mem_perc, 0)}%")))
+
+(defwidget cpu []
+           (box :class "info"
+                      (label :text "CPU ${round(EWW_CPU.avg, 0)}%")))
 
 (defwidget workspaces []
-  (eventbox :onscroll "bash ~/.config/eww/scripts/change-active-workspace {} ${current_workspace}" :class "workspaces-widget"
-    (box :space-evenly false
-         :spacing 7
-      (for workspace in workspaces
-        (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
-          (box :class "workspace-entry"
-            (label :text "${workspace.id}" :class "workspace-entry ${workspace.windows > 0 ? "occupied" : "empty"} ${workspace.id == current_workspace ? "current" : "inactive"}" )))))))
+           (box :space-evenly false ; SET MAX WIDTH TO 25%
+                :spacing 7
+                (for ws in workspaces
+                      (eventbox :onclick "hyprctl dispatch workspace ${ws.id}"
+                                (box :class "workspace-entry"
+                                (label :text "${ws.id}" :class "workspace-entry ${ws.windows > 0 ? "occupied" : "empty"} ${ws.id == current_workspace ? "current" : "inactive"}" ))))))

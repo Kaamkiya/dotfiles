@@ -4,6 +4,17 @@
 }
 
 .bar {
+  background: none;
+}
+
+.info {
+  background: #585b70;
+  border-radius: 1em;
+  margin-left: 1em;
+  padding: 0.5em;
+}
+
+.bar {
   padding: 1em;
 }
 
@@ -14,8 +25,8 @@
   color: #f9e2af;
 }
 .workspace-entry.inactive.occupied {
-  color: #cdd6f4;
+  color: #bac2de;
 }
 .workspace-entry.inactive.empty {
-  color: #a6adc8
+  color: #9399b2;
 }
