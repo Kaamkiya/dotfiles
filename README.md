@@ -6,9 +6,9 @@ All the config files I find important.
 
 ## Installed Apps
 
-- [Firefox](https://www.mozilla.org/en-US/firefox/new/)
+- [Zen](https://zen-browser.app)
 - [Helix](https://helix-editor.com)
-- [WezTerm](https://wezfurlong.org/wezterm/index.html)
+- [Kitty](https://github.com/kovidgoyal/kitty)
 - [aerc](http://aerc-mail.org/)
 - [Fastfetch](https://github.com/fastfetch-cli/fastfetch)
 - [Starship](https://starship.rs)
