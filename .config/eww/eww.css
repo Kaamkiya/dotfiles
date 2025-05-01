@@ -1,0 +1,21 @@
+* {
+  font-family: 'JetBrainsMono Nerd Font', monospace;
+  font-size: 0.96em;
+}
+
+.bar {
+  padding: 1em;
+}
+
+.workspace-entry {
+  font-size: 1em;
+}
+.workspace-entry.current {
+  color: #f9e2af;
+}
+.workspace-entry.inactive.occupied {
+  color: #cdd6f4;
+}
+.workspace-entry.inactive.empty {
+  color: #a6adc8
+}

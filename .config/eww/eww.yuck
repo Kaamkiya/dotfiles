@@ -1,0 +1,52 @@
+;; Polling variables
+(defpoll time :interval "1s"
+              `date +%H:%M:%S`)
+(defpoll batterylevel :interval "5s"
+                 `echo $(( ($(cat /sys/class/power_supply/BAT0/capacity) + $(cat /sys/class/power_supply/BAT1/capacity)) / 2))%`)
+
+;; Listeners
+(deflisten workspaces :initial "[]" "scripts/get_workspaces")
+(deflisten current_workspace :initial "1" "scripts/get_current_workspace")
+(deflisten window :initial "..." "sh ~/.config/eww/scripts/get_window_title")
+
+;; Windows
+(defwindow bar
+           :monitor 0
+           :geometry (geometry :x "0%"
+                               :y "0%"
+                               :width "100%"
+                               :height "30px"
+                               :anchor "top center")
+           :stacking "fg"
+           :exclusive true
+           :windowtype "dock"
+           (bar))
+
+;; Widgets
+(defwidget bar []
+           (box :class "bar"
+                (workspaces)
+                (label :text "${window}")
+                (rightside)))
+
+(defwidget rightside []
+           (box :halign "end"
+                      (battery)
+                      (clock)))
+
+(defwidget clock []
+           (box
+                      (label :text time)))
+
+(defwidget battery []
+           (box
+                      (label :text batterylevel)))
+
+(defwidget workspaces []
+  (eventbox :onscroll "bash ~/.config/eww/scripts/change-active-workspace {} ${current_workspace}" :class "workspaces-widget"
+    (box :space-evenly false
+         :spacing 7
+      (for workspace in workspaces
+        (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
+          (box :class "workspace-entry"
+            (label :text "${workspace.id}" :class "workspace-entry ${workspace.windows > 0 ? "occupied" : "empty"} ${workspace.id == current_workspace ? "current" : "inactive"}" )))))))

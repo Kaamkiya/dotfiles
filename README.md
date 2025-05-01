@@ -19,13 +19,11 @@ All the config files I find important.
 - [tokei](https://github.com/XAMPPRocky/tokei)
 - [French qwerty keyboard](https://qwerty-fr.org/)
 
-## The system
-
-I currently use sway with i3status-rust for bar content.
-
 ## Stuff not shown
 
-- OS is Void Linux, but it _may_ be portable to other Linux distros
-- Cursor theme is Bibata Modern Ice
-- Fetch is fastfetch
-- Fonts are Roboto and JetBrains Mono Nerd Font
+- OS: Void Linux
+- Cursors: Bibata Modern Ice
+- Fetch: fastfetch
+- Fonts: Roboto and JetBrainsMono Nerd Font
+- Window Manager: Hyprland
+- Widgets: eww
