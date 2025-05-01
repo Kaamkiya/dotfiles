@@ -49,3 +49,7 @@ language-servers = [ "rust-analyzer", "wakatime" ]
 [[language]]
 name = "elvish"
 language-servers = [ "elvish", "wakatime" ]
+
+[[language]]
+name = "yuck"
+language-servers = [ "wakatime" ]

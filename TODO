@@ -1,3 +1,6 @@
 - audio drivers for microphone
 - fix ms teams
 - switch away from i3status-rust; write custom bar content generator
+- get a bar
+- switch to networkmanager
+- switch to pipewire
