@@ -1,0 +1,27 @@
+#!/bin/bash
+
+bat=$(echo $(( ($(cat /sys/class/power_supply/BAT0/capacity) + $(cat /sys/class/power_supply/BAT1/capacity)) / 2)))
+
+if [[ bat -gt 99 ]]; then
+	echo "󰁹 $bat%"
+elif [[ bat -gt 90 ]]; then
+	echo "󰂂 $bat%"
+elif [[ bat -gt 80 ]]; then
+	echo "󰂁 $bat%"
+elif [[ bat -gt 70 ]]; then
+	echo "󰂀 $bat%"
+elif [[ bat -gt 60 ]]; then
+	echo "󰁿 $bat%"
+elif [[ bat -gt 50 ]]; then
+	echo "󰁾 $bat%"
+elif [[ bat -gt 40 ]]; then
+	echo "󰁽 $bat%"
+elif [[ bat -gt 30 ]]; then
+	echo "󰁼 $bat%"
+elif [[ bat -gt 20 ]]; then
+	echo "󰁻 $bat%"
+elif [[ bat -gt 10 ]]; then
+	echo "󰁺 $bat%"
+else
+	echo "󰂎 $bat%"
+fi

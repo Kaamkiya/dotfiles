@@ -1,14 +1,13 @@
 ;; Polling variables
 (defpoll time :interval "1s"
               `date +"%H:%M:%S"`)
-(defpoll batterylevel :interval "5s"
-                 `echo $(( ($(cat /sys/class/power_supply/BAT0/capacity) + $(cat /sys/class/power_supply/BAT1/capacity)) / 2))%`)
 
 ;; Listeners
 (deflisten workspaces :initial "[]" "scripts/get_workspaces")
 (deflisten current_workspace :initial "1" "scripts/get_current_workspace")
 (deflisten window :initial "..." "scripts/get_window_title")
 (deflisten volume :initial "0%" "scripts/volume")
+(defpoll batterylevel :interval "5s" "scripts/battery")
 
 ;; Windows
 (defwindow bar
@@ -44,7 +43,7 @@
 
 (defwidget battery []
            (box :class "info"
-                      (label :text "BAT ${batterylevel}")))
+                      (label :text "${batterylevel}")))
 
 (defwidget ram []
            (box :class "info"
