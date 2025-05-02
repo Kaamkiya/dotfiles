@@ -1,13 +1,13 @@
 ;; Polling variables
 (defpoll time :interval "1s"
               `date +"%H:%M:%S"`)
+(defpoll current_workspace :interval "0.02s" "scripts/get_current_workspace")
 
 ;; Listeners
 (deflisten workspaces :initial "[]" "scripts/get_workspaces")
-(deflisten current_workspace :initial "1" "scripts/get_current_workspace")
 (deflisten window :initial "..." "scripts/get_window_title")
 (deflisten volume :initial "0%" "scripts/volume")
-(defpoll batterylevel :interval "5s" "scripts/battery")
+(deflisten batterylevel :interval "5s" "scripts/battery")
 
 ;; Windows
 (defwindow bar
@@ -68,4 +68,5 @@
                 (for ws in workspaces
                       (eventbox :onclick "hyprctl dispatch workspace ${ws.id}"
                                 (box :class "workspace-entry"
-                                (label :text "${ws.id}" :class "workspace-entry ${ws.windows > 0 ? "occupied" : "empty"} ${ws.id == current_workspace ? "current" : "inactive"}" )))))))
+                                (label :text "${ws.id}${ws.id == current_workspace ? " CURRENT": ""}"
+                                       :class "workspace-entry ${ws.windows > 0 ? "occupied" : "empty"} ${ws.id == current_workspace ? "current" : "inactive"}" )))))))
