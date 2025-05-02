@@ -25,8 +25,8 @@
 
 ;; Widgets
 (defwidget bar []
-           (box :class "bar"
-                (workspaces)
+           (centerbox :class "bar"
+                (leftside)
                 (box :class "info" (label :text "${window}"))
                 (rightside)))
 
@@ -56,12 +56,17 @@
 
 (defwidget vol []
            (box :class "info"
-                       (label :text "VOL ${volume}")))
+                       (label :text "${volume}")))
+
+(defwidget leftside []
+           (box :halign "start"
+                      (workspaces)))
 
 (defwidget workspaces []
+           (box :class "info workspaces"
            (box :space-evenly false ; SET MAX WIDTH TO 25%
                 :spacing 7
                 (for ws in workspaces
                       (eventbox :onclick "hyprctl dispatch workspace ${ws.id}"
                                 (box :class "workspace-entry"
-                                (label :text "${ws.id}" :class "workspace-entry ${ws.windows > 0 ? "occupied" : "empty"} ${ws.id == current_workspace ? "current" : "inactive"}" ))))))
+                                (label :text "${ws.id}" :class "workspace-entry ${ws.windows > 0 ? "occupied" : "empty"} ${ws.id == current_workspace ? "current" : "inactive"}" )))))))
