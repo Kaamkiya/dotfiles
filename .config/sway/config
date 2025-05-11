@@ -9,7 +9,7 @@ set $term kitty
 
 set $menu fuzzel
 
-output * bg ~/pictures/backgrounds/City.png fill
+output * bg ~/pictures/sunrise.jpg fill
 
 font pango:JetBrainsMono Nerd Font Regular 8.5
 
