@@ -22,13 +22,14 @@ mdeps.setup({ path = { package = path_package } })
 mdeps.add("echasnovski/mini-git")
 mdeps.add("echasnovski/mini.pairs")
 mdeps.add("folke/which-key.nvim")
+mdeps.add("goolord/alpha-nvim")
 mdeps.add("m4xshen/hardtime.nvim")
 mdeps.add("mason-org/mason.nvim")
 mdeps.add("mason-org/mason-lspconfig.nvim")
+mdeps.add("mikavilpas/yazi.nvim")
 mdeps.add("neovim/nvim-lspconfig")
 mdeps.add("nvim-lualine/lualine.nvim")
 mdeps.add("nvim-tree/nvim-web-devicons")
-mdeps.add("nvimdev/dashboard-nvim")
 mdeps.add({ source = "catppuccin/nvim", name = "catppuccin" })
 mdeps.add({
   source = "nvim-treesitter/nvim-treesitter",
@@ -122,12 +123,16 @@ require("mason-lspconfig").setup({
 })
 
 --- WHICH-KEY ---
-
 mdeps.now(function() require("which-key").setup({}) end)
 
---- DASHBOARD ---
+--- ALPHA ---
+local startify = require("alpha.themes.startify")
+startify.file_icons.provider = "devicons"
 
-mdeps.now(function() require("dashboard").setup({}) end)
+require("alpha").setup(startify.config)
 
 --- HARDTIME.NVIM ---
 mdeps.now(function() require("hardtime").setup({}) end)
+
+--- YAZI.NVIM ---
+mdeps.later(function() require("yazi").setup({}) end)
