@@ -126,10 +126,13 @@ require("mason-lspconfig").setup({
 mdeps.now(function() require("which-key").setup({}) end)
 
 --- ALPHA ---
-local startify = require("alpha.themes.startify")
-startify.file_icons.provider = "devicons"
+local alphatheme = require("alpha.themes.dashboard")
 
-require("alpha").setup(startify.config)
+alphatheme.section.header.val = {
+	'', '          __________-------____                 ____-------__________', '          \\------____-------___--__---------__--___-------____------/', '           \\//////// / / / / / \\   _-------_   / \\ \\ \\ \\ \\ \\\\\\\\\\\\\\\\/', '             \\////-/-/------/_/_| /___   ___\\ |_\\_\\------\\-\\-\\\\\\\\/', '               --//// / /  /  //|| (O)\\ /(O) ||\\\\  \\  \\ \\ \\\\\\\\--', '                    ---__/  // /| \\_  /V\\  _/ |\\ \\\\  \\__---', '                         -//  / /\\_ ------- _/\\ \\  \\\\-', '                           \\_/_/ /\\---------/\\ \\_\\_/', '                               ----\\   |   /----', '                                    | -|- |', '                                   /   |   \\', '                                   ---- \\___|'
+}
+
+require("alpha").setup(alphatheme.config)
 
 --- HARDTIME.NVIM ---
 mdeps.now(function() require("hardtime").setup({}) end)
