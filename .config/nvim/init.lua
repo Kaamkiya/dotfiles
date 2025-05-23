@@ -2,66 +2,141 @@
 -- Kaamkiya's neovim config
 -- URL: https://codeberg.org/Kaamkiya/dotfiles
 
---- MINI.NVIM ---
-
-local path_package = vim.fn.stdpath("data") .. "/site/"
-local mini_path = path_package .. "pack/deps/start/mini.nvim"
-if not vim.loop.fs_stat(mini_path) then
-  vim.cmd("echo 'Installing `mini.nvim`' | redraw")
-  local clone_cmd = {
-    "git", "clone", "--filter=blob:none",
-    "https://github.com/echasnovski/mini.nvim", mini_path
-  }
-  vim.fn.system(clone_cmd)
-  vim.cmd("packadd mini.nvim | helptags ALL")
-  vim.cmd("echo 'Installed `mini.nvim`' | redraw")
+--- lazy.nvim ---
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
+vim.opt.rtp:prepend(lazypath)
 
-local mdeps = require("mini.deps")
-mdeps.setup({ path = { package = path_package } })
-mdeps.add("echasnovski/mini-git")
-mdeps.add("echasnovski/mini.pairs")
-mdeps.add("folke/which-key.nvim")
-mdeps.add("goolord/alpha-nvim")
-mdeps.add("m4xshen/hardtime.nvim")
-mdeps.add("mason-org/mason.nvim")
-mdeps.add("mason-org/mason-lspconfig.nvim")
-mdeps.add("neovim/nvim-lspconfig")
-mdeps.add("nvim-lualine/lualine.nvim")
-mdeps.add("nvim-tree/nvim-web-devicons")
-mdeps.add({ source = "catppuccin/nvim", name = "catppuccin" })
-mdeps.add({ source = "nvim-telescope/telescope.nvim", depends = { "nvim-lua/plenary.nvim" } })
-mdeps.add({
-  source = "nvim-treesitter/nvim-treesitter",
-  checkout = "master",
-  monitor = "main",
-  hooks = { post_checkout = function() vim.cmd("TSUpdate") end },
-})
-mdeps.add({
-  source = "saghen/blink.cmp",
-  depends = { "rafamadriz/friendly-snippets" },
-})
+require("lazy").setup({
+  spec = {
+    { "catppuccin/nvim", name = "catppuccin", lazy = false },
+    { "echasnovski/mini-git", version = false, main = "mini.git", opts = {} },
+    { "echasnovski/mini.pairs", version = false, opts = {} },
+    {
+      "folke/which-key.nvim",
+      event = "VeryLazy",
+      keys = {
+        {
+          "<leader>?",
+          function()
+            require("which-key").show({ global = false })
+          end,
+          desc = "Buffer Local Keymaps (which-key)",
+        },
+      },
+    },
+    {
+      "goolord/alpha-nvim",
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+      config = function()
+        local dash = require("alpha.themes.dashboard")
 
-mdeps.now(function() require("mini.git").setup({}) end)
-mdeps.now(function() require("mini.pairs").setup({}) end)
+        dash.section.header.val = {
+          [[          __________-------____                 ____-------__________  ]],
+          [[          \------____-------___--__---------__--___-------____------/  ]],
+          [[           \//////// / / / / / \   _-------_   / \ \ \ \ \ \\\\\\\\/   ]],
+          [[             \////-/-/------/_/_| /___   ___\\ |_\_\------\-\-\\\\/    ]],
+          [[               --//// / /  /  //|| (O)\\ /(O) ||\\  \  \ \ \\\\--      ]],
+          [[                    ---__/  // /| \\_  /V\\  _/ |\ \\  \__---          ]],
+          [[                         -//  / /\_ ------- _/\ \  \\-                 ]],
+          [[                           \_/_/ /\---------/\ \_\_/                   ]],
+          [[                               ----\\   |   /----                      ]],
+          [[                                    | -|- |                            ]],
+          [[                                   /   |   \                           ]],
+          [[                                   ---- \___|                          ]],
+        }
+
+        dash.section.buttons.val = {
+          dash.button("e", "  New file",     [[<cmd>ene <cr>]]),
+          dash.button("f", "  Find file",    [[<cmd>Telescope find_files <cr>]]),
+          dash.button("r", "  Recent files", [[<cmd>Telescope oldfiles <cr>]]),
+          dash.button("q", "  Quit",         [[<cmd>qa <cr>]]),
+        }
+
+        require("alpha").setup(dash.config)
+      end,
+    },
+    { "m4xshen/hardtime.nvim", opts = {} },
+    { "mason-org/mason.nvim", opts = {} },
+    {
+      "mason-org/mason-lspconfig.nvim",
+      opts = {
+        ensure_installed = {
+          "gopls",
+          "ruff",
+          "rust_analyzer",
+        },
+      },
+    },
+    { "neovim/nvim-lspconfig" },
+    { "nvim-lualine/lualine.nvim", lazy = false },
+    { "nvim-telescope/telescope.nvim", tag = "0.1.8", dependencies = { "nvim-lua/plenary.nvim" } },
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    {
+      "saghen/blink.cmp",
+      dependencies = { "rafamadriz/friendly-snippets" },
+      version = "1.*",
+      opts = {
+        -- C-space: Open menu or open docs if already open
+        -- C-n/C-p or Up/Down: Select next/previous item
+        -- C-e: Hide menu
+        -- C-k: Toggle signature help (if signature.enabled = true)
+        keymap = { preset = "default" },
+        appearance = {
+          nerd_font_variant = "mono"
+        },
+        completion = { documentation = { auto_show = true } },
+        sources = {
+          default = { "lsp", "path", "snippets", "buffer" },
+        },
+        fuzzy = { implementation = "prefer_rust_with_warning" },
+      },
+      opts_extend = { "sources.default" },
+    },
+    {
+      "windwp/nvim-autopairs",
+      event = "InsertEnter",
+      config = true,
+      opts = {},
+    },
+  },
+  checker = { enabled = true },
+})
 
 --- GENERAL ---
 
-mdeps.now(function()
-  vim.cmd("colo catppuccin-mocha")
-  vim.o.number = true
-  vim.o.swapfile = false
-  vim.o.splitbelow = true
-  vim.o.splitright = true
-  vim.o.termguicolors = true
-  vim.o.clipboard = "unnamedplus"
-  vim.o.scrolloff = 5
-  vim.o.hlsearch = true
-  vim.o.incsearch = true
+vim.o.number = true
+vim.o.relativenumber = true
 
-  vim.g.loaded_netrw = 1
-  vim.g.loaded_netrwPlugin = 1
-end)
+vim.o.swapfile = false
+
+vim.o.splitbelow = true
+vim.o.splitright = true
+
+vim.o.termguicolors = true
+vim.cmd("colo catppuccin-mocha")
+
+vim.o.clipboard = "unnamedplus"
+
+vim.o.scrolloff = 5
+
+vim.o.hlsearch = true
+vim.o.incsearch = true
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 --- LUALINE ---
 
@@ -109,19 +184,6 @@ require("lualine").setup({
 
 --- LANGUAGE SERVERS ---
 
-require("mason").setup()
-require("mason-lspconfig").setup({
-  ensure_installed = {
-    "gopls",
-    "gofumpt",
-    "golangci-lint",
-    "golangci-lint-langserver",
-    "html-lsp",
-    "ruff",
-    "rust_analyzer"
-  },
-})
-
 vim.diagnostic.config({
   virtual_text = true,
   signs = true,
@@ -130,53 +192,17 @@ vim.diagnostic.config({
   severity_sort = true,
   float = {
     focusable = false,
-    style = 'minimal',
-    border = 'rounded',
-    source = 'always',
-    header = '',
-    prefix = '',
+    style = "minimal",
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = "",
   },
-}
-)
+})
 vim.diagnostic.open_float()
 
---- WHICH-KEY ---
-mdeps.now(function() require("which-key").setup({}) end)
-
---- ALPHA ---
-local dash = require("alpha.themes.dashboard")
-
-dash.section.header.val = {
-  [[          __________-------____                 ____-------__________  ]],
-  [[          \------____-------___--__---------__--___-------____------/  ]],
-  [[           \//////// / / / / / \   _-------_   / \ \ \ \ \ \\\\\\\\/   ]],
-  [[             \////-/-/------/_/_| /___   ___\\ |_\_\------\-\-\\\\/    ]],
-  [[               --//// / /  /  //|| (O)\\ /(O) ||\\  \  \ \ \\\\--      ]],
-  [[                    ---__/  // /| \\_  /V\\  _/ |\ \\  \__---          ]],
-  [[                         -//  / /\_ ------- _/\ \  \\-                 ]],
-  [[                           \_/_/ /\---------/\ \_\_/                   ]],
-  [[                               ----\\   |   /----                      ]],
-  [[                                    | -|- |                            ]],
-  [[                                   /   |   \                           ]],
-  [[                                   ---- \___|                          ]],
-}
-
-dash.section.buttons.val = {
-  dash.button("e", "  New file",     [[<cmd>ene <cr>]]),
-  dash.button("f", "  Find file",    [[<cmd>lua require("telescope.builtin").find_files() <cr>]]),
-  dash.button("r", "  Recent files", [[<cmd>lua require("telescope.builtin").oldfiles() <cr>]]),
-  dash.button("q", "  Quit",         [[<cmd>qa <cr>]])
-}
-
-require("alpha").setup(dash.config)
-
---- HARDTIME.NVIM ---
-mdeps.now(function() require("hardtime").setup({}) end)
-
 --- NVIM-TREESITTER ---
-mdeps.later(function()
-  require("nvim-treesitter.configs").setup({
-    ensure_installed = { "go", "python", "typescript", "html", "c", "lua" },
-    highlight = { enable = true },
-  })
-end)
+require("nvim-treesitter.configs").setup({
+  ensure_installed = { "go", "python", "typescript", "html", "c", "lua" },
+  highlight = { enable = true },
+})
