@@ -26,11 +26,11 @@ mdeps.add("goolord/alpha-nvim")
 mdeps.add("m4xshen/hardtime.nvim")
 mdeps.add("mason-org/mason.nvim")
 mdeps.add("mason-org/mason-lspconfig.nvim")
-mdeps.add("mikavilpas/yazi.nvim")
 mdeps.add("neovim/nvim-lspconfig")
 mdeps.add("nvim-lualine/lualine.nvim")
 mdeps.add("nvim-tree/nvim-web-devicons")
 mdeps.add({ source = "catppuccin/nvim", name = "catppuccin" })
+mdeps.add({ source = "nvim-telescope/telescope.nvim", depends = { "nvim-lua/plenary.nvim" } })
 mdeps.add({
   source = "nvim-treesitter/nvim-treesitter",
   checkout = "master",
@@ -122,20 +122,61 @@ require("mason-lspconfig").setup({
   },
 })
 
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  update_in_insert = false,
+  underline = true,
+  severity_sort = true,
+  float = {
+    focusable = false,
+    style = 'minimal',
+    border = 'rounded',
+    source = 'always',
+    header = '',
+    prefix = '',
+  },
+}
+)
+vim.diagnostic.open_float()
+
 --- WHICH-KEY ---
 mdeps.now(function() require("which-key").setup({}) end)
 
 --- ALPHA ---
-local alphatheme = require("alpha.themes.dashboard")
+local dash = require("alpha.themes.dashboard")
 
-alphatheme.section.header.val = {
-	'', '          __________-------____                 ____-------__________', '          \\------____-------___--__---------__--___-------____------/', '           \\//////// / / / / / \\   _-------_   / \\ \\ \\ \\ \\ \\\\\\\\\\\\\\\\/', '             \\////-/-/------/_/_| /___   ___\\ |_\\_\\------\\-\\-\\\\\\\\/', '               --//// / /  /  //|| (O)\\ /(O) ||\\\\  \\  \\ \\ \\\\\\\\--', '                    ---__/  // /| \\_  /V\\  _/ |\\ \\\\  \\__---', '                         -//  / /\\_ ------- _/\\ \\  \\\\-', '                           \\_/_/ /\\---------/\\ \\_\\_/', '                               ----\\   |   /----', '                                    | -|- |', '                                   /   |   \\', '                                   ---- \\___|'
+dash.section.header.val = {
+  [[          __________-------____                 ____-------__________  ]],
+  [[          \------____-------___--__---------__--___-------____------/  ]],
+  [[           \//////// / / / / / \   _-------_   / \ \ \ \ \ \\\\\\\\/   ]],
+  [[             \////-/-/------/_/_| /___   ___\\ |_\_\------\-\-\\\\/    ]],
+  [[               --//// / /  /  //|| (O)\\ /(O) ||\\  \  \ \ \\\\--      ]],
+  [[                    ---__/  // /| \\_  /V\\  _/ |\ \\  \__---          ]],
+  [[                         -//  / /\_ ------- _/\ \  \\-                 ]],
+  [[                           \_/_/ /\---------/\ \_\_/                   ]],
+  [[                               ----\\   |   /----                      ]],
+  [[                                    | -|- |                            ]],
+  [[                                   /   |   \                           ]],
+  [[                                   ---- \___|                          ]],
 }
 
-require("alpha").setup(alphatheme.config)
+dash.section.buttons.val = {
+  dash.button("e", "  New file",     [[<cmd>ene <cr>]]),
+  dash.button("f", "  Find file",    [[<cmd>lua require("telescope.builtin").find_files() <cr>]]),
+  dash.button("r", "  Recent files", [[<cmd>lua require("telescope.builtin").oldfiles() <cr>]]),
+  dash.button("q", "  Quit",         [[<cmd>qa <cr>]])
+}
+
+require("alpha").setup(dash.config)
 
 --- HARDTIME.NVIM ---
 mdeps.now(function() require("hardtime").setup({}) end)
 
---- YAZI.NVIM ---
-mdeps.later(function() require("yazi").setup({}) end)
+--- NVIM-TREESITTER ---
+mdeps.later(function()
+  require("nvim-treesitter.configs").setup({
+    ensure_installed = { "go", "python", "typescript", "html", "c", "lua" },
+    highlight = { enable = true },
+  })
+end)
