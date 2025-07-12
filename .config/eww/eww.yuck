@@ -1,6 +1,6 @@
 ;; Polling variables
 (defpoll time :interval "1s"
-              `date +"%H:%M:%S"`)
+              `date +"%Y/%m/%d %H:%M:%S"`)
 (defpoll current_workspace :interval "0.02s" "scripts/get_current_workspace")
 (defpoll batterylevel :interval "5s" "scripts/battery")
 
