@@ -3,7 +3,7 @@ command = "superhtml"
 args = ["lsp"]
 
 [language-server.wakatime]
-command = "wakatime-lsp"
+command = "wakatime-ls"
 
 [[language]]
 name = "html"
