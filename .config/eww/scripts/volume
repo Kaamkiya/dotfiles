@@ -1,13 +1,13 @@
 #!/bin/bash
 
 while true; do
-	out=$(amixer sget Master)
+	out=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}' | xargs)
 	icon=" "
-	if [[ $(echo $out | awk -F '[][]' '{print $6}' | xargs) == "off" ]]; then
+	if [[ $out == "yes" ]]; then
 		icon=" "
 	fi
 
-	echo "$icon $(echo $out | awk -F '[][]' '{print $2}' | xargs)"
+	echo "$icon $(pactl get-sink-volume @DEFAULT_SINK@ | awk -F ' ' '{print $5}' | xargs)"
 
 	sleep 0.1
 
