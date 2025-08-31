@@ -17,6 +17,8 @@ fn asmc { |f|
   ld -o $obj $obj.o
 }
 
+fn rm_orphans { |_| sudo -- pacman --remove --nosave --recursive (pacman --query --deps --unrequired | awk '{print $1}')}
+
 fn tree { |@a| ll --tree $@a }
 
 set E:XDG_RUNTIME_DIR = "/run/user/"(id -u)

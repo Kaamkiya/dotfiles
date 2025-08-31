@@ -8,6 +8,8 @@ spawn-at-startup "swww-daemon"
 spawn-at-startup "swww" "img" "/home/zm/pictures/cobourg_beach.jpg"
 spawn-at-startup "dunst"
 spawn-at-startup "xwayland-satellite"
+spawn-at-startup "blueman-applet"
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
 environment {
     DISPLAY ":0"
@@ -346,6 +348,8 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+E hotkey-overlay-title="Copy an emoji: wofimoji" { spawn "wofimoji"; }
+    Mod+B hotkey-overlay-title="Select from clipboard: cliphist" { spawn "/bin/bash" "-c" "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
     Mod+Shift+X hotkey-overlay-title="Lock the Screen: swaylock" { spawn "/home/zm/dotfiles/.local/bin/lock.sh"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
