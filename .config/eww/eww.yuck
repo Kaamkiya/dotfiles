@@ -61,7 +61,7 @@
 
 (defwidget wifi []
            (box :class "info"
-                      (label :text "${wifi}dBm")))
+                      (label :text "󰖩 ${wifi}dBm")))
 
 (defwidget leftside []
            (box :halign "start"
@@ -69,10 +69,8 @@
 
 (defwidget workspaces []
            (box :class "info workspaces"
-           (box :space-evenly false ; SET MAX WIDTH TO 25%
-                :spacing 7
                 (for ws in workspaces
-                      (eventbox :onclick "hyprctl dispatch workspace ${ws.id}"
-                                (box :class "workspace-entry"
-                                (label :text "${ws.id}${ws.id == current_workspace ? " CURRENT": ""}"
-                                       :class "workspace-entry ${ws.windows > 0 ? "occupied" : "empty"} ${ws.id == current_workspace ? "current" : "inactive"}" )))))))
+                      (button
+                                 :class "ws-entry ${ws.active ? "current" : "inactive"}"
+                                 :onclick "niri msg action focus-workspace ${ws.name}"
+                                 "${ws.name}"))))

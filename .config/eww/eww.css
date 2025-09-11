@@ -19,15 +19,15 @@
   padding: 1em;
 }
 
-.workspace-entry {
+.ws-entry {
   font-size: 1em;
 }
-.workspace-entry.current {
+.ws-entry.current {
   color: #f9e2af;
 }
-.workspace-entry.inactive.occupied {
+.ws-entry.inactive.occupied {
   color: #bac2de;
 }
-.workspace-entry.inactive.empty {
+.ws-entry.inactive.empty {
   color: #9399b2;
 }

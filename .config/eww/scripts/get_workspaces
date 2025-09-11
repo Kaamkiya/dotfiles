@@ -1,11 +1,36 @@
 #!/usr/bin/env bash
 
-spaces (){
-  WORKSPACE_WINDOWS=$(hyprctl workspaces -j | jq 'map({key: .id | tostring, value: .windows}) | from_entries')
-  seq 1 10 | jq --argjson windows "${WORKSPACE_WINDOWS}" --slurp -Mc 'map(tostring) | map({id: ., windows: ($windows[.]//0)})'
-}
-
-spaces
-socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | while read -r line; do
-  spaces
+# if using Niri
+while true; do
+  output=$(niri msg workspaces 2>/dev/null)
+  
+  if [ $? -ne 0 ]; then
+    echo "[]"
+    exit 1
+  fi
+  
+  # Extract the active workspace (strip non-numeric characters)
+  active=$(echo "$output" | awk '/\*/ {gsub(/[^0-9]/, "", $0); print}')
+  
+  # Extract all workspace numbers (ignore the first line and non-numeric data)
+  workspaces=$(echo "$output" | awk 'NR>1 {gsub(/[^0-9]/, "", $0); print}')
+  
+  # Format as JSON for EWW
+  echo "["
+  echo "$workspaces" | while read -r ws; do
+    active_bool=$([ "$ws" = "$active" ] && echo "true" || echo "false")
+    echo "  { \"name\": \"$ws\", \"active\": $active_bool },"
+  done | sed '$ s/,$//'
+  echo "]"
 done
+
+# if using Hyprland
+#spaces (){
+  #WORKSPACE_WINDOWS=$(hyprctl workspaces -j | jq 'map({key: .id | tostring, value: .windows}) | from_entries')
+  #seq 1 10 | jq --argjson windows "${WORKSPACE_WINDOWS}" --slurp -Mc 'map(tostring) | map({id: ., windows: ($windows[.]//0)})'
+#}
+
+#spaces
+#socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | while read -r line; do
+  #spaces
+#done
