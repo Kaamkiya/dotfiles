@@ -8,6 +8,7 @@
 (deflisten workspaces :initial "[]" "scripts/get_workspaces")
 (deflisten window :initial "..." "scripts/get_window_title")
 (deflisten volume :initial "0%" "scripts/volume")
+(deflisten wifi :initial "0" "scripts/wifi")
 
 ;; Windows
 (defwindow bar
@@ -31,6 +32,7 @@
 
 (defwidget rightside []
            (box :halign "end"
+                      (wifi)
                       (ram)
                       (cpu)
                       (battery)
@@ -56,6 +58,10 @@
 (defwidget vol []
            (box :class "info"
                        (label :text "${volume}")))
+
+(defwidget wifi []
+           (box :class "info"
+                      (label :text "${wifi}dBm")))
 
 (defwidget leftside []
            (box :halign "start"

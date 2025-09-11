@@ -1,0 +1,10 @@
+#!/bin/bash
+
+intef=$(ip addr | awk '/state UP/ {gsub(":","");print $2}')
+
+while true; do
+  sign=$(iw dev "$intef" link | awk '/signal/ {gsub("-",""); print $2}')
+
+  echo "$sign"
+  sleep 0.5
+done
