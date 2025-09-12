@@ -1,6 +1,8 @@
 ;; Polling variables
 (defpoll time :interval "1s"
-              `date +"%Y/%m/%d %H:%M:%S"`)
+              `date +"%H:%M:%S"`)
+(defpoll date :interval "1s"
+              `date +"%Y/%m/%d"`)
 (defpoll current_workspace :interval "0.02s" "scripts/get_current_workspace")
 (defpoll batterylevel :interval "5s" "scripts/battery")
 
@@ -25,9 +27,8 @@
 
 ;; Widgets
 (defwidget bar []
-           (centerbox :class "bar"
-                (leftside)
-                (box :class "info" (label :text "${window}"))
+           (box :class "bar"
+                (box :halign "start" :class "info" (label :text "${window}"))
                 (rightside)))
 
 (defwidget rightside []
@@ -37,11 +38,16 @@
                       (cpu)
                       (battery)
                       (vol)
+                      (date)
                       (clock)))
 
 (defwidget clock []
            (box :class "info"
                       (label :text time)))
+
+(defwidget date []
+           (box :class "info"
+                      (label :text date)))
 
 (defwidget battery []
            (box :class "info"
@@ -61,16 +67,4 @@
 
 (defwidget wifi []
            (box :class "info"
-                      (label :text "󰖩 ${wifi}dBm")))
-
-(defwidget leftside []
-           (box :halign "start"
-                      (workspaces)))
-
-(defwidget workspaces []
-           (box :class "info workspaces"
-                (for ws in workspaces
-                      (button
-                                 :class "ws-entry ${ws.active ? "current" : "inactive"}"
-                                 :onclick "niri msg action focus-workspace ${ws.name}"
-                                 "${ws.name}"))))
+                      (label :text "󰖩 ${wifi}db/ms")))

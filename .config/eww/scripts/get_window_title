@@ -1,4 +1,4 @@
 #!/bin/sh
 while true; do
-  niri msg focused-window | grep Title | awk '{gsub(/"/, ""); print $2}'
+  niri msg focused-window | awk '/Title/ {gsub(/"/, ""); $1=""; print $0}'
 done
