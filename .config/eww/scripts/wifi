@@ -1,10 +1,21 @@
 #!/bin/bash
 
-intef=$(ip addr | awk '/state UP/ {gsub(":","");print $2}')
+intef=$(ip addr | awk '/state UP/ {gsub(":",""); print $2}')
 
 while true; do
-  sign=$(iw dev "$intef" link | awk '/signal/ {gsub("-",""); print $2}')
+    dbm=$(iw dev "$intef" link | awk '/signal/ {print $2}')
+    symbol="󰤯 "
 
-  echo "$sign"
-  sleep 0.5
+    if [ $dbm -gt -67 ]; then
+        symbol="󰤨 "
+    elif [ $dbm -gt -70 ]; then
+        symbol="󰤥 "
+    elif [ $dbm -gt -80 ]; then
+        symbol="󰤢 "
+    elif [ $dbm -ge -90 ]; then
+        symbol="󰤟 "
+    fi
+
+    echo "$symbol $dbm"
+    sleep 0.5
 done

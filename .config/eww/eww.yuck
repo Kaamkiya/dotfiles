@@ -67,4 +67,4 @@
 
 (defwidget wifi []
            (box :class "info"
-                      (label :text "󰖩 ${wifi}db/ms")))
+                      (label :text "${wifi}")))
