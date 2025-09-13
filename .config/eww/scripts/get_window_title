@@ -1,4 +1,10 @@
 #!/bin/sh
 while true; do
-  niri msg focused-window | awk '/Title/ {gsub(/"/, ""); $1=""; print $0}'
+  title=$(niri msg focused-window | awk '/Title/ {gsub(/"/, ""); $1=""; print $0}')
+
+  if [ title -eq "" ]; then
+    title=""
+  fi
+
+  echo $title
 done

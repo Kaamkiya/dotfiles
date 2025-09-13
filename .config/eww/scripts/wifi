@@ -4,6 +4,12 @@ intef=$(ip addr | awk '/state UP/ {gsub(":",""); print $2}')
 
 while true; do
     dbm=$(iw dev "$intef" link | awk '/signal/ {print $2}')
+    download_bitrate=$(iw dev wlan0 link | awk '/rx bitrate: / { print $3; }')
+    upload_bitrate=$(iw dev wlan0 link | awk '/tx bitrate: / { print $3; }')
+
+    dl_mbps=$(python -c "print(f'{$download_bitrate / 8:.2f}')")
+    ul_mbps=$(python -c "print(f'{$upload_bitrate / 8:.2f}')")
+
     symbol="󰤯 "
 
     if [ $dbm -gt -67 ]; then
@@ -16,6 +22,9 @@ while true; do
         symbol="󰤟 "
     fi
 
-    echo "$symbol $dbm"
+    [ ${#dl_mbps} -eq 4 ] && dl_mpbs=" $dl_mbps"
+    [ ${#ul_mbps} -eq 4 ] && ul_mpbs=" $ul_mbps"
+
+    echo "$symbol  $dl_mbps  $ul_mbps"
     sleep 0.5
 done

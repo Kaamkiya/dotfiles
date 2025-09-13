@@ -1,8 +1,6 @@
 ;; Polling variables
 (defpoll time :interval "1s"
-              `date +"%H:%M:%S"`)
-(defpoll date :interval "1s"
-              `date +"%Y/%m/%d"`)
+              `date +"%Y/%m/%d %H:%M:%S"`)
 (defpoll current_workspace :interval "0.02s" "scripts/get_current_workspace")
 (defpoll batterylevel :interval "5s" "scripts/battery")
 
@@ -32,22 +30,17 @@
                 (rightside)))
 
 (defwidget rightside []
-           (box :halign "end"
+           (box :halign "end" :space-evenly false
                       (wifi)
                       (ram)
                       (cpu)
                       (battery)
                       (vol)
-                      (date)
-                      (clock)))
+                      (datetime)))
 
-(defwidget clock []
+(defwidget datetime []
            (box :class "info"
                       (label :text time)))
-
-(defwidget date []
-           (box :class "info"
-                      (label :text date)))
 
 (defwidget battery []
            (box :class "info"
