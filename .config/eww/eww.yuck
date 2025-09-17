@@ -9,6 +9,7 @@
 (deflisten window :initial "..." "scripts/get_window_title")
 (deflisten volume :initial "0%" "scripts/volume")
 (deflisten wifi :initial "0" "scripts/wifi")
+(deflisten brightness :inital "0%" "scripts/brightness")
 
 ;; Windows
 (defwindow bar
@@ -35,6 +36,7 @@
                       (ram)
                       (cpu)
                       (battery)
+                      (brightness)
                       (vol)
                       (datetime)))
 
@@ -61,3 +63,7 @@
 (defwidget wifi []
            (box :class "info"
                       (label :text "${wifi}")))
+
+(defwidget brightness []
+           (box :class "info"
+                      (label :text "${brightness}")))

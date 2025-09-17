@@ -1,0 +1,19 @@
+#!/bin/sh
+
+while true; do
+  brightness=$(cat /sys/class/backlight/intel_backlight/brightness)
+  max_brightness=$(cat /sys/class/backlight/intel_backlight/max_brightness)
+  brightness_percentage=$(( brightness * 100 / max_brightness ))
+
+  symbol="󰃚 "
+
+  if [ $brightness_percentage -lt 67 ]; then # six seeeeven
+    symbol="󰃛 "
+  fi
+  if [ $brightness_percentage -lt 33 ]; then
+    symbol="󰃜 "
+  fi
+  
+  echo "$symbol$brightness_percentage%"
+  sleep 0.1s
+done
