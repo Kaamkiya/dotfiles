@@ -1,0 +1,24 @@
+#!/bin/sh
+
+which_sudo() {
+    if [ "$(id -u)" = "0" ]; then
+        return
+    elif command -v sudo >/dev/null; then
+        echo sudo
+    elif command -v doas >/dev/null && [ -f /etc/doas.conf ]; then
+        echo doas
+    else
+        echo su
+    fi
+}
+
+do_install() {
+    if [ "$SUDO" = "su" ]; then
+        su root -c 'pacman -Syu "$@"' -- sh "$@"
+    else
+        $SUDO pacman -Syu "$@"
+    fi
+}
+
+SUDO=$(which_sudo)
+do_install "$@"

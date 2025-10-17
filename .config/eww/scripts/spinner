@@ -1,0 +1,18 @@
+#!/bin/sh
+
+phases=('' '' '' '' '' '')
+i=0
+
+while true; do
+  output=$(free | head -2 | tail -1)
+  total=$(echo $output | awk '{print $2}')
+  used=$(echo $output | awk '{print $3}')
+
+  echo "${phases[$i]}"
+  i=$((i + 1))
+  if [ $((i + 1)) -gt "${#phases[@]}" ]; then
+    i=0
+  fi
+
+  sleep $(python -c "print(1 - $used/$total)")
+done

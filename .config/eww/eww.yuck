@@ -10,6 +10,7 @@
 (deflisten volume :initial "0%" "scripts/volume")
 (deflisten wifi :initial "0" "scripts/wifi")
 (deflisten brightness :inital "0%" "scripts/brightness")
+(deflisten spinny :initial "" "scripts/spinner")
 
 ;; Windows
 (defwindow bar
@@ -32,6 +33,7 @@
 
 (defwidget rightside []
            (box :halign "end" :space-evenly false
+                      (spinny)
                       (wifi)
                       (ram)
                       (cpu)
@@ -67,3 +69,11 @@
 (defwidget brightness []
            (box :class "info"
                       (label :text "${brightness}")))
+(defwidget spinny []
+           (box :class "info"
+                      (label :text "${spinny}")))
+
+; TODO:
+; add a dropdown for things like pause/unpause notifications
+; enable/disable wifi
+; 
