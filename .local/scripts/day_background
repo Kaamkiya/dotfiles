@@ -1,0 +1,3 @@
+#!/bin/bash
+
+swww img --no-resize /home/zm/pictures/cobourg_beach.jpg

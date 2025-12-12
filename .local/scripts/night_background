@@ -1,0 +1,3 @@
+#!/bin/bash
+
+swww img --no-resize /home/zm/graphics/notebook_designs/pride_dots.svg
