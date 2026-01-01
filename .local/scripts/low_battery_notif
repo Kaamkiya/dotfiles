@@ -1,3 +1,0 @@
-#!/bin/bash
-
-[[ $(( ($(cat /sys/class/power_supply/BAT0/capacity)/2 + $(cat /sys/class/power_supply/BAT1/capacity))/2 )) -lt 70 ]] && notify-send "LOW BATTERY" --urgency=critical

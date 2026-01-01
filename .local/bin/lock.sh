@@ -9,6 +9,6 @@ swaylock \
 --line-color=$BLANK        \
 --separator-color=$DEFAULT \
 \
---image=$HOME/pictures/backgrounds/better_cat_bsod.png \
+--image=$HOME/data/pictures/backgrounds/better_cat_bsod.png \
 \
 --show-failed-attempts
