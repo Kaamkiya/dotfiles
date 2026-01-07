@@ -3,6 +3,7 @@
               `date +"%Y/%m/%d %H:%M:%S"`)
 (defpoll current_workspace :interval "0.02s" "scripts/get_current_workspace")
 (defpoll batterylevel :interval "5s" "scripts/battery")
+(defpoll audio :interval "1s" "playerctl metadata title")
 
 ;; Listeners
 (deflisten workspaces :initial "[]" "scripts/get_workspaces")
@@ -33,7 +34,7 @@
 
 (defwidget rightside []
            (box :halign "end" :space-evenly false
-                      (spinny)
+                      (song)
                       (wifi)
                       (ram)
                       (cpu)
@@ -73,7 +74,11 @@
            (box :class "info"
                       (label :text "${spinny}")))
 
+(defwidget song []
+           (box :class "info"
+                      (label :text audio)))
+
 ; TODO:
 ; add a dropdown for things like pause/unpause notifications
 ; enable/disable wifi
-; 
+; enable/disable bluetooth
