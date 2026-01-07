@@ -1,6 +1,18 @@
 use str
 
-set paths = [ $E:HOME'/.local/bin' $E:HOME'/go/bin' $E:HOME'/.cargo/bin' $E:HOME'/.bun/bin' $E:HOME'/.deno/bin' '/home/zm/.local/lib/flutter/bin' '/usr/local/node/bin' '/usr/local/go/bin' '/usr/lib/jvm/openjdk8/bin' '/home/zm/adb' $@paths ]
+set paths = [
+  $E:HOME'/.local/bin'
+  $E:HOME'/go/bin'
+  $E:HOME'/.cargo/bin'
+  $E:HOME'/.bun/bin'
+  $E:HOME'/.deno/bin'
+  $E:HOME'/adb'
+  $E:HOME'/.cabal/bin'
+  $E:HOME'/.ghcup/bin'
+  '/usr/local/go/bin'
+  '/usr/lib/jvm/openjdk8/bin'
+  $@paths
+]
 
 fastfetch --logo /home/zm/dotfiles/.config/fastfetch/cat
 eval (starship init elvish)

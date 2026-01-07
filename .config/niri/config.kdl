@@ -272,7 +272,7 @@ layout {
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/pictures/screenshots/%Y-%m-%d_%H-%M-%S.png"
+screenshot-path "~/data/pictures/screenshots/%Y-%m-%d_%H-%M-%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
@@ -571,6 +571,11 @@ binds {
     Ctrl+Alt+Delete { quit; }
 
     Mod+Shift+P { power-off-monitors; }
+
+    // Custom playerctl bindings
+    Mod+Shift+Home { spawn "playerctl" "previous"; }
+    Mod+Shift+End { spawn "playerctl" "play-pause"; }
+    Mod+Shift+Insert { spawn "playerctl" "next"; }
 }
 
 overview {
