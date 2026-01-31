@@ -1,0 +1,14 @@
+#!/bin/sh
+
+while [ 1 ]; do
+	stat=$(playerctl status)
+	title=$(playerctl metadata title)
+
+	if [[ $stat == "Playing" ]]; then
+		echo " $title"
+	elif [[ $stat == "Paused" ]]; then
+		echo " Paused"
+	else
+		echo " Not Playing"
+	fi
+done

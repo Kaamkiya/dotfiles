@@ -5,11 +5,15 @@
 
 spawn-at-startup "eww" "open" "bar"
 spawn-at-startup "swww-daemon"
-spawn-at-startup "swww" "img" "/home/zm/data/pictures/photography/cobourg_beach.jpg"
+spawn-at-startup "swww" "img" "/home/zm/data/pictures/backgrounds/redpanda.jpg"
+spawn-at-startup "swaybg" "-i" "/home/zm/data/pictures/backgrounds/redpandablurred.jpg"
 spawn-at-startup "dunst"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+
+// Scripts to run while display is on
+spawn-at-startup "/home/zm/.local/at-startup/battery_notif.bash"
 
 environment {
     DISPLAY ":0"
@@ -581,4 +585,10 @@ binds {
 overview {
     zoom 0.5
     backdrop-color "#1e1e2e"
+}
+
+layer-rule {
+    match namespace="^wallpaper$"
+
+    place-within-backdrop true
 }

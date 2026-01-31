@@ -3,7 +3,6 @@
               `date +"%Y/%m/%d %H:%M:%S"`)
 (defpoll current_workspace :interval "0.02s" "scripts/get_current_workspace")
 (defpoll batterylevel :interval "5s" "scripts/battery")
-(defpoll audio :interval "1s" "playerctl metadata title")
 
 ;; Listeners
 (deflisten workspaces :initial "[]" "scripts/get_workspaces")
@@ -12,6 +11,7 @@
 (deflisten wifi :initial "0" "scripts/wifi")
 (deflisten brightness :inital "0%" "scripts/brightness")
 (deflisten spinny :initial "" "scripts/spinner")
+(deflisten audio :initial "" "scripts/audio")
 
 ;; Windows
 (defwindow bar
