@@ -35,7 +35,7 @@ fn tree { |@a| ll --tree $@a }
 
 set E:XDG_RUNTIME_DIR = "/run/user/"(id -u)
 set E:MOZ_ENABLE_WAYLAND = 1
-set E:EDITOR = 'nvim'
+set E:EDITOR = 'hx'
 set E:CHROME_EXECUTABLE = '/home/zm/.local/applications/ungoogled-chromium/chrome'
 
 use github.com/zzamboni/elvish-modules/bang-bang
