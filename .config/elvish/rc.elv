@@ -33,9 +33,14 @@ fn rm_orphans { |_| sudo -- pacman --remove --nosave --recursive (pacman --query
 
 fn tree { |@a| ll --tree $@a }
 
+fn j { |@a|
+  javac $@a.java
+  java $@a
+}
+
 set E:XDG_RUNTIME_DIR = "/run/user/"(id -u)
 set E:MOZ_ENABLE_WAYLAND = 1
 set E:EDITOR = 'hx'
-set E:CHROME_EXECUTABLE = '/home/zm/.local/applications/ungoogled-chromium/chrome'
+set E:_JAVA_AWT_WM_NONREPARENTING = 1
 
 use github.com/zzamboni/elvish-modules/bang-bang

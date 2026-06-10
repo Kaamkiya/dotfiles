@@ -12,6 +12,7 @@
 (deflisten brightness :inital "0%" "scripts/brightness")
 (deflisten spinny :initial "" "scripts/spinner")
 (deflisten audio :initial "" "scripts/audio")
+(deflisten keyboardlayout :initial "---" "scripts/keyboard_layout")
 ;(deflisten bluetooth_info :initial "" "scripts/bluetooth")
 
 ;; Windows
@@ -36,6 +37,7 @@
 (defwidget rightside []
            (box :halign "end" :space-evenly false
                       (song)
+                      (keyboard)
                       (wifi)
                       (ram)
                       (cpu)
@@ -78,6 +80,10 @@
 (defwidget song []
            (box :class "info"
                       (label :text audio)))
+
+(defwidget keyboard []
+           (box :class "info"
+                      (label :text keyboardlayout)))
 
 ;(defwidget bluetooth []
            ;(box :class "info"

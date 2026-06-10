@@ -1,0 +1,13 @@
+#!/bin/bash
+
+while true; do
+    l=$(niri msg keyboard-layouts | sed -n 's/^ \* //p')
+
+    if [[ $l == "0 English (US)" ]]; then
+        echo "en"
+    elif [[ $l == "1 Urdu (Pakistan)" ]]; then
+        echo "اردو"
+    elif [[ $l == "2 French" ]]; then
+        echo "fr"
+    fi
+done

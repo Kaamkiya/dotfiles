@@ -4,8 +4,8 @@
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
 
 spawn-at-startup "eww" "open" "bar"
-spawn-at-startup "swww-daemon"
-spawn-at-startup "swww" "img" "/home/zm/data/pictures/backgrounds/redpanda.jpg"
+spawn-at-startup "awww-daemon"
+spawn-at-startup "awww" "img" "/home/zm/data/pictures/backgrounds/redpanda.jpg"
 spawn-at-startup "swaybg" "-i" "/home/zm/data/pictures/backgrounds/redpandablurred.jpg"
 spawn-at-startup "dunst"
 spawn-at-startup "xwayland-satellite"
@@ -27,8 +27,8 @@ cursor {
 input {
     keyboard {
         xkb {
-            layout "us,pk"
-            options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
+            layout "us,pk,fr"
+            options "grp:win_space_toggle,compose:ralt"
         }
 
         numlock
@@ -577,9 +577,9 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 
     // Custom playerctl bindings
-    Mod+Shift+Home { spawn "playerctl" "previous"; }
-    Mod+Shift+End { spawn "playerctl" "play-pause"; }
-    Mod+Shift+Insert { spawn "playerctl" "next"; }
+    Mod+Shift+Home hotkey-overlay-title="Previous media (playerctl)" { spawn "playerctl" "previous"; }
+    Mod+Shift+End hotkey-overlay-title="Pause media (playerctl)" { spawn "playerctl" "play-pause"; }
+    Mod+Shift+Insert hotkey-overlay-title="Next media (playerctl)" { spawn "playerctl" "next"; }
 }
 
 overview {
