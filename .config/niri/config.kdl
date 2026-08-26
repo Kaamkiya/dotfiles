@@ -16,7 +16,7 @@ spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 spawn-at-startup "/home/zm/.local/at-startup/battery_notif.bash"
 
 environment {
-    DISPLAY ":0"
+    DISPLAY ":0" // For xwayland compatibility
 }
 
 cursor {
@@ -32,6 +32,7 @@ input {
         }
 
         numlock
+        track-layout "window"
     }
 
     touchpad {

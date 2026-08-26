@@ -16,7 +16,8 @@ language-servers = [ "superhtml-lsp", "wakatime" ]
 name = "c"
 auto-format = true
 indent = { tab-width = 8, unit = "	"}
-language-servers = [ "clangd", "wakatime" ]
+#language-servers = [ "clangd", "wakatime" ]
+language-servers = [ "wakatime" ]
 
 [[language]]
 name = "go"
