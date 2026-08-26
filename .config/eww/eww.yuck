@@ -79,11 +79,11 @@
 
 (defwidget song []
            (box :class "info"
-                      (label :text audio)))
+                      (label :text "${audio}")))
 
 (defwidget keyboard []
            (box :class "info"
-                      (label :text keyboardlayout)))
+                      (label :text "${keyboardlayout}")))
 
 ;(defwidget bluetooth []
            ;(box :class "info"
