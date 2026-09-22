@@ -17,7 +17,7 @@ set paths = [
 fastfetch --logo /home/zm/dotfiles/.config/fastfetch/cat
 eval (starship init elvish)
 
-fn ls { |@a| eza -F --group-directories-first --color $@a }
+fn ls { |@a| eza -F --color --group-directories-first $@a }
 fn la { |@a| ls -A $@a }
 fn ll { |@a| la --icons -lh $@a }
 
@@ -34,7 +34,7 @@ fn rm_orphans { |_| sudo -- pacman --remove --nosave --recursive (pacman --query
 fn tree { |@a| ll --tree $@a }
 
 fn j { |@a|
-  javac $@a.java
+  javac (str:trim-suffix $@a .java).java
   java $@a
 }
 

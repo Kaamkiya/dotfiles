@@ -2,7 +2,6 @@
 
 imgs=("handsoff.png" "itslocked.png")
 selected_img=${imgs[ $RANDOM % ${#imgs[@]} ]}
-echo $selected_img >> /tmp/SELECTEDBACKGROUND
 
 # states: normal, clear, capslock, ver, wrong
 

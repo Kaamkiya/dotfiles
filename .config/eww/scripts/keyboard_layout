@@ -7,7 +7,9 @@ while true; do
         echo "en"
     elif [[ $l == "1 Urdu (Pakistan)" ]]; then
         echo "اردو"
-    elif [[ $l == "2 French" ]]; then
+    elif [[ $l == "2 US keyboard with french symbols - AltGr combination" ]]; then
         echo "fr"
+    else
+        echo $l
     fi
 done
