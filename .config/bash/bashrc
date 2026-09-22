@@ -1,8 +1,4 @@
-case $- in
-    *i*) ;;
-      *) return;;
-esac
-
+#!/bin/bash
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -29,22 +25,8 @@ alias ll="la --icons -lh"
 alias tree="ll --tree --git-ignore"
 
 function mkcd {
-  command mkdir $1 && cd $1
+  command mkdir "$1" && cd "$1"
 }
-
-export $(dbus-launch)
-export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.bun/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:$HOME/.deno/bin"
-export PATH="$PATH:$(go env GOPATH)"
-export PATH="$PATH:/usr/local/go/bin"
-export PATH="$PATH:/usr/lib/jvm/java-21-openjdk/bin"
-export EDITOR="hx"
-export MOX_ENABLE_WAYLAND=1
-export XDG_RUNTIME_DIR="/run/user/$(id -u)"
-export _JAVA_AWT_WM_NONREPARENTING=1
 
 fastfetch
 eval "$(starship init bash)"
