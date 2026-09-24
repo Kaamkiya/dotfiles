@@ -12,19 +12,15 @@ All the config files I find important.
 - [Fastfetch](https://github.com/fastfetch-cli/fastfetch)
 - [Starship](https://starship.rs)
 - [Elvish](https://elv.sh)
-- [gh](https://github.com/cli/cli)
-- [tokei](https://github.com/XAMPPRocky/tokei)
 - [French qwerty keyboard](https://qwerty-fr.org/)
 - [fuzzel](https://codeberg.org/dnkl/fuzzel)
-- [blueman](https://github.com/blueman-project/blueman)
-- [resources](https://apps.gnome.org/Resources/)
-- [iwgtk](https://github.com/J-Lentz/iwgtk)
+- [Yazi](https://yazi-rs.github.io/)
 
 ## Stuff not shown
 
-- OS: Void Linux
+- OS: Arch Linux
 - Cursors: Bibata Modern Ice
 - Fetch: fastfetch
-- Fonts: Roboto and JetBrainsMono Nerd Font
-- Window Manager: Hyprland
+- Fonts: Segoe UI and JetBrainsMono Nerd Font
+- Window Manager: Niri
 - Widgets: eww

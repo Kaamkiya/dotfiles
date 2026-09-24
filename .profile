@@ -47,5 +47,5 @@ fi
 
 #source "$HOME/.config/bash/bashrc"
 if [ -f "$HOME/.bashrc" ]; then
-    . "$HOME/./bashrc"
+    . "$HOME/.bashrc"
 fi
