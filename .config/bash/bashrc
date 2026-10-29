@@ -28,5 +28,11 @@ function mkcd {
   command mkdir "$1" && cd "$1"
 }
 
+function j {
+  n=$(basename $1 .java)
+  javac $n.java
+  java $n
+}
+
 fastfetch
 eval "$(starship init bash)"
